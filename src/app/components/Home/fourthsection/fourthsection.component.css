@@ -1,0 +1,8 @@
+#sec4 h2::after{
+  content: '';
+  background: black;
+  display: block;
+  height: 3px;
+  width: 170px;
+  margin: 20px auto 5px;
+}
