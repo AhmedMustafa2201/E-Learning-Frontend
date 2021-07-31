@@ -18,6 +18,8 @@ import { FourthsectionComponent } from './components/Home/fourthsection/fourthse
 import { SectionfiveComponent } from './components/Home/sectionfive/sectionfive.component';
 import { SectionsixComponent } from './components/Home/sectionsix/sectionsix.component';
 import { SectionsevenComponent } from './components/Home/sectionseven/sectionseven.component';
+import { ExamComponent } from './components/exam/exam.component';
+import { LessonComponent } from './components/lesson/lesson.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { SectionsevenComponent } from './components/Home/sectionseven/sectionsev
     FourthsectionComponent,
     SectionfiveComponent,
     SectionsixComponent,
-    SectionsevenComponent
+    SectionsevenComponent,
+    ExamComponent,
+    LessonComponent
   ],
   imports: [
     BrowserModule,
