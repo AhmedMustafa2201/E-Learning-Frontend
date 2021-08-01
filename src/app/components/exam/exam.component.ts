@@ -10,8 +10,8 @@ import { ExamService } from './../../../services/exam.service';
   styleUrls: ['./exam.component.css']
 })
 export class ExamComponent implements OnInit,OnDestroy{
-  exam:Exam=new Exam();
-  private subscriptions: Subscription[] = [];
+  exam:Exam;
+  private subscriptions: Subscription[];
   degree:number=-1;
   @ViewChild("Questions") Questions:any;
   id:number;
@@ -19,11 +19,7 @@ export class ExamComponent implements OnInit,OnDestroy{
   constructor(private examService: ExamService,route:ActivatedRoute,private renderer:Renderer2) {
     this.id = route.snapshot.params["id"];
    }
-  ngOnDestroy(): void {
-    for(let sub of this.subscriptions){
-      sub.unsubscribe()
-    }
-    }
+
 
   ngOnInit(): void {
    var subscription =  this.examService.getByID(this.id).subscribe(
@@ -34,6 +30,11 @@ export class ExamComponent implements OnInit,OnDestroy{
     this.subscriptions.push(subscription)
   }
 
+  ngOnDestroy(): void {
+    for(let sub of this.subscriptions){
+      sub.unsubscribe()
+    }
+    }
 
   calc(){
     this.degree=0;
@@ -62,35 +63,3 @@ export class ExamComponent implements OnInit,OnDestroy{
 
 
 }
-
-
-
-  // ={
-//     examName:"امتحان المحاضرة الأولى "
-//     ,Questions:[
-//       {QuestionName:"ما إعراب وحده؟"
-//     ,options:[
-//       {optionName:"حال",
-//       isCorrect:true
-//     },
-//     {optionName:"خبر",
-//     isCorrect:false
-//   }
-//     ]
-
-//   },
-//   {QuestionName:"ما إعراب جميعكم"
-//   ,options:[
-//     {optionName:"حال",
-//     isCorrect:false
-//   },
-//   {optionName:"توكيد",
-//   isCorrect:true
-// }
-//   ]
-
-// },
-
-//     ]
-
-//   }
