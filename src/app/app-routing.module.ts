@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnswersComponent } from './components/answers/answers.component';
+import { ArticleComponent } from './components/article/article.component';
+import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { MasterpageComponent } from './components/Home/masterpage/masterpage.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path:"Home", component:MasterpageComponent},
   {path:"exam/:id", component:ExamComponent},
   {path:"lesson/:id", component:LessonComponent},
+  {path:"course/:id", component:CoursedetailesComponent},
+  {path:"article/:id", component:ArticleComponent},
   {path:"**", component:ErrorComponent}
 ];
 

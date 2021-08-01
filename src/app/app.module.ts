@@ -19,6 +19,8 @@ import { SectionsixComponent } from './components/Home/sectionsix/sectionsix.com
 import { SectionsevenComponent } from './components/Home/sectionseven/sectionseven.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { LessonComponent } from './components/lesson/lesson.component';
     SectionsixComponent,
     SectionsevenComponent,
     ExamComponent,
-    LessonComponent
+    LessonComponent,
+    CoursedetailesComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
