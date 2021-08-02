@@ -47,14 +47,11 @@ import { MasterquestionpoolComponent } from './components/questionsPool/masterqu
     SectionsevenComponent,
     ExamComponent,
     LessonComponent,
-<<<<<<< HEAD
     QuestionscontComponent,
     QuestionfilterComponent,
-    MasterquestionpoolComponent
-=======
+    MasterquestionpoolComponent,
     CoursedetailesComponent,
     ArticleComponent
->>>>>>> 670907bffbbace4ea538f4ae3eed6615bf0ac454
   ],
   imports: [
     BrowserModule,

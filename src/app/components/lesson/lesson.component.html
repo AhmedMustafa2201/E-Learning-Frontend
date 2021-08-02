@@ -2,9 +2,11 @@
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-lg-3 text-right ml-2 mr-2 mb-3 mt-3" id="f">
-                <button class="btn btn-outline-dark col-lg-3 text-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-weight: 500;">
-        <i class="fas fa-chevron-down"></i> &nbsp; عرض الدروس
-  </button>
+                <button class="btn filterbord col-lg-3 text-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-weight: 500;">
+                  <div class="d-flex justify-content-between">
+                    عرض الدروس<i class="fas fa-caret-down"></i>
+                  </div>
+                  </button>
                 <div class="collapse" id="collapseExample">
                     <div id="accordion" class="text-right">
                         <div *ngFor="let lsn of lessons" class="card linksbg">
