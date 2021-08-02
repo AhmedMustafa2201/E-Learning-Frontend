@@ -49,4 +49,5 @@ export class EditLessonComponent implements OnInit {
      this.id =this.selectBox.nativeElement.value;
   }
 
+
 }
