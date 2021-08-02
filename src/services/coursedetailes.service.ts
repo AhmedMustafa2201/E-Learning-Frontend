@@ -15,6 +15,10 @@ export class CoursedetailesService {
     return this.http.get(this.URL+"course/"+id)
   }
   getSomeCourses(){
+    return this.http.get(this.URL+"course/course"+)
+  }
+
+  getAll(){
     return this.http.get(this.URL+"course")
   }
 }
