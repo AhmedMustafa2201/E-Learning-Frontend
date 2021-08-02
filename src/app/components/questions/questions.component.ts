@@ -11,6 +11,8 @@ import * as moment from 'moment';
 import { Subscribable, Subscription } from 'rxjs';
 import { Post } from 'src/app/Models/post';
 import { Router } from '@angular/router';
+import * as signalR from '@microsoft/signalr';
+
 
 @Component({
   selector: 'app-questions',
@@ -32,6 +34,21 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   copiedQuestions: Post[]
   ngOnInit(): void {
     this.getAllData();
+
+    const connection = new signalR.HubConnectionBuilder()
+    .configureLogging(signalR.LogLevel.Information)
+    .withUrl("https://localhost:44329/notify")
+    .build();
+
+    connection.start().then(function () {
+      console.log('SignalR Connected!');
+    }).catch(function (err) {
+      return console.error(err.toString());
+    });
+
+    connection.on("broadcast", () => {
+      this.getAllData();
+    });
   }
   checkToken(){
     return localStorage.getItem("rntoken")

@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Post } from 'src/app/Models/post';
 import { Comment } from 'src/app/Models/comment';
 import { AnswerService } from 'src/services/answer.service';
+import * as signalR from '@microsoft/signalr';
 
 @Component({
   selector: 'app-answers',
@@ -41,7 +42,22 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
   }
   ngOnInit(): void {
     this.getquestionWithAnswers();
-    this.getquestionsWithLimited()
+    this.getquestionsWithLimited();
+
+    const connection = new signalR.HubConnectionBuilder()
+      .configureLogging(signalR.LogLevel.Information)
+      .withUrl("https://localhost:44329/notify")
+      .build();
+
+      connection.start().then(function () {
+        console.log('SignalR Connected!');
+      }).catch(function (err) {
+        return console.error(err.toString());
+      });
+
+      connection.on("broadcast", () => {
+        this.getquestionWithAnswers();
+      });
   }
 
   ngAfterViewInit(): void {
