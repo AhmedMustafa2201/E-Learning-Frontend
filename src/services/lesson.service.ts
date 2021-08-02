@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Lesson } from './../app/Models/lesson';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class LessonService {
   }
   getAll(){
     return this.lessonClient.get(this.URL+"api/lesson")
+  }
+  update(lsn:Lesson){
+    console.log("in update2");
+    return this.lessonClient.put<Lesson>(this.URL+"api/lesson",lsn)
   }
 }
