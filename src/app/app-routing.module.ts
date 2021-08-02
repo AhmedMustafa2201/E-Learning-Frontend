@@ -18,7 +18,6 @@ const routes: Routes = [
   {path:"exam/:id", component:ExamComponent},
   {path:"lesson/:id", component:LessonComponent},
   {path:"questionpool",component:MasterquestionpoolComponent},
-
   {path:"course/:id", component:CoursedetailesComponent},
   {path:"article/:id", component:ArticleComponent},
   { path: 'admin',

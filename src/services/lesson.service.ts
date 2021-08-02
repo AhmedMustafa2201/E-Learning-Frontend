@@ -11,7 +11,8 @@ export class LessonService {
   constructor(private lessonClient: HttpClient) { }
   getByID(id:number){
     return this.lessonClient.get(this.URL+"api/lesson/"+id)
-  }  getSome(){
+  }
+  getSome(){
     return this.lessonClient.get(this.URL+"api/lesson/lesson")
   }
   getlsnsByCrsId(id:number){
