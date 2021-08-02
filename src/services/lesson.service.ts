@@ -16,4 +16,7 @@ export class LessonService {
   getlsnsByCrsId(id:number){
     return this.lessonClient.get(this.URL+"api/lesson/course/"+id)
   }
+  getAll(){
+    return this.lessonClient.get(this.URL+"api/lesson")
+  }
 }
