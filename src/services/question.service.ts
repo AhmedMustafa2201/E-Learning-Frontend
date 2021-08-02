@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
 export class QuestionService {
 
   constructor(private myClient: HttpClient) { }
-  private URL="http://localhost:3000/questions"
+  private URL="https://localhost:44329/api/Post"
 
   getAll(){
     return this.myClient.get(this.URL)
   }
 
   getAllWithLimited(){
-    return this.myClient.get(this.URL+"?_limit=4")
+    return this.myClient.get(this.URL+"/limited")
   }
 
   getByID(id:number){
@@ -23,11 +23,19 @@ export class QuestionService {
   }
 
   add(question:any){
-    return this.myClient.post(this.URL,question)
+    return this.myClient.post(this.URL+"/Add",question)
   }
 
-  update(id:number, question:any){
-    return this.myClient.put(this.URL+"/"+id,question)
+  updateLike(id:number, question:any){
+    debugger
+    return this.myClient.post(this.URL+"/like/"+id,question)
   }
 
+  updateDisLike(id:number, question:any){
+    return this.myClient.post(this.URL+"/dislike/"+id,question)
+  }
+
+  updateViewCount(id:number,question){
+    return this.myClient.patch(this.URL+"/"+id,question)
+  }
 }

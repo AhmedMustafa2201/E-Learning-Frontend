@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionsComponent } from './components/questions/questions.component';
@@ -20,6 +19,8 @@ import { SectionsixComponent } from './components/Home/sectionsix/sectionsix.com
 import { SectionsevenComponent } from './components/Home/sectionseven/sectionseven.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
+import { ArticleComponent } from './components/article/article.component';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,9 +47,14 @@ import { MasterquestionpoolComponent } from './components/questionsPool/masterqu
     SectionsevenComponent,
     ExamComponent,
     LessonComponent,
+<<<<<<< HEAD
     QuestionscontComponent,
     QuestionfilterComponent,
     MasterquestionpoolComponent
+=======
+    CoursedetailesComponent,
+    ArticleComponent
+>>>>>>> 670907bffbbace4ea538f4ae3eed6615bf0ac454
   ],
   imports: [
     BrowserModule,

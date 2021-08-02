@@ -8,18 +8,27 @@ export class AnswerService {
 
 
   constructor(private myClient: HttpClient) { }
-  private URL="http://localhost:3000/answers"
+  private URL="https://localhost:44329/api/Comment"
 
-  getAllByQuestion(id:number){
-    return this.myClient.get(`${this.URL}?questionID=${id}`)
+
+  updateLike(id:number, answer:any){
+    return this.myClient.post(this.URL+"/like/"+id,answer)
   }
+
+  updateDisLike(id:number, answer:any){
+    return this.myClient.post(this.URL+"/dislike/"+id,answer)
+  }
+
+  // getAllByQuestion(id:number){
+  //   return this.myClient.get(`${this.URL}?questionID=${id}`)
+  // }
 
   add(answer:any){
     return this.myClient.post(this.URL,answer)
   }
 
-  update(id:number, answer:any){
-    return this.myClient.put(this.URL+"/"+id,answer)
-  }
+  // update(id:number, answer:any){
+  //   return this.myClient.put(this.URL+"/"+id,answer)
+  // }
 
 }

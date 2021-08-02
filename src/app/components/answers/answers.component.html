@@ -1,4 +1,4 @@
-<section id="asker">
+<section id="asker" style="margin-top: 5em;">
   <div class="container">
     <div class="row p-4">
       <div class="col-lg-8">
@@ -7,16 +7,16 @@
         <div class="question-content" data-views="10" data-anscount="1">
           <div data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
             <div class="media">
-              <img [src]="questionDetails.user.photo" class="ml-3" alt="...">
+              <img [src]="questions.image" class="ml-3" alt="...">
               <div class="media-body text-right">
-                <h5 class="mt-0"> {{questionDetails.user.name}}</h5>
-                <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(questionDetails.createdAt)}}</p>
+                <h5 class="mt-0"> {{questions.userName}}</h5>
+                <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(questions.createdAt)}}</p>
               </div>
             </div>
             <div class="card text-right mt-2">
               <div class="card-body">
                 <h5 class="card-title">
-                  {{questionDetails.title}}
+                  {{questions.content}}
                 </h5>
                 <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
               </div>
@@ -24,9 +24,9 @@
                 <div class="d-flex">
                   <div class="ml-auto bd-highlight">
                     <span class="mr-auto">
-                      <i #up (click)="increaseEval(up,down)" class="fas fa-arrow-up ev evup"></i>
-                      <span class="ml-auto mr-auto ev">{{questionDetails.evaluation}}</span>
-                      <i #down (click)="decreaseEval(up, down)" class="fas  fa-arrow-down ev evdown"></i>
+                      <i #up [ngClass]="{'text-muted': currentUserLike(questions)||!checkToken()}" (click)="increaseEval(up,down)" class="fas fa-arrow-up ev evup"></i>
+                      <span class="ml-auto mr-auto ev">{{questions.postLikes}}</span>
+                      <i #down [ngClass]="{'text-muted': currentUserDisLike(questions)||!checkToken()}" (click)="decreaseEval(up, down)" class="fas  fa-arrow-down ev evdown"></i>
                     </span>
                   </div>
                   <div>
@@ -41,8 +41,7 @@
           </div>
         </div>
 
-        <div class="card text-center mt-2">
-          <!-- the best Answer section -->
+        <div *ngIf="bestAnswer!=null" class="card text-center mt-2">
           <div class="best-answer">
             <div data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
               <div class="card-header text-right card1-style">
@@ -51,9 +50,9 @@
 
               <div class="card-body text-right">
                 <div class="media">
-                  <img [src]="bestAnswer.user.photo" class="align-self-start ml-3" alt="...">
+                  <img [src]="bestAnswer.image" class="align-self-start ml-3" alt="...">
                   <div class="media-body">
-                    <h5 class="mt-0">{{bestAnswer.user.name}} @</h5>
+                    <h5 class="mt-0">{{bestAnswer.userName}} @</h5>
                     <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(bestAnswer.createdAt)}}</p>
                     <p class="h5">{{bestAnswer.content}}</p>
                   </div>
@@ -63,10 +62,10 @@
                 <div class="d-flex bd-highlight">
                   <div class="ml-auto bd-highlight">
                     <span class="mr-auto">
-                      <i #upAnswer (click)="increaseAnsEval(bestAnswer.id, upAnswer, downAnswer)" data-id="nAMuObwtI3TygTDt4qZC"
+                      <i #upAnswer [ngClass]="{'text-muted': currentUserCommentLike(bestAnswer)||!checkToken()}" (click)="increaseAnsEval(bestAnswer.id, upAnswer, downAnswer)"
                         class="fas fa-arrow-up ev evup"></i>
-                      <span class="ml-auto mr-auto ev">{{bestAnswer.evaluation}}</span>
-                      <i #downAnswer (click)="decreaseAnsEval(bestAnswer.id,  upAnswer, downAnswer)" data-id="nAMuObwtI3TygTDt4qZC"
+                      <span class="ml-auto mr-auto ev">{{bestAnswer.commentLikes}}</span>
+                      <i #downAnswer [ngClass]="{'text-muted': currentUserCommentDisLike(bestAnswer)||!checkToken()}" (click)="decreaseAnsEval(bestAnswer.id,  upAnswer, downAnswer)"
                         class="fas fa-arrow-down ev evdown"></i>
                     </span>
                   </div>
@@ -94,10 +93,10 @@
               data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
               <div class="card-body text-right">
                 <div class="media">
-                  <img [src]="item.user.photo" class="align-self-start ml-3"
+                  <img [src]="item.image" class="align-self-start ml-3"
                     alt="...">
                   <div class="media-body">
-                    <h5 class="mt-0">{{item.user.name}} @</h5>
+                    <h5 class="mt-0">{{item.userName}} @</h5>
                     <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(item.createdAt)}}</p>
                     <p class="h5">{{item.content}}</p>
                   </div>
@@ -107,10 +106,10 @@
                 <div class="d-flex bd-highlight">
                   <div class="ml-auto bd-highlight">
                     <span class="mr-auto">
-                      <i #upAnswerRef (click)="increaseAnsEval(item.id,  upAnswerRef, downAnswerRef)"
+                      <i #upAnswerRef [ngClass]="{'text-muted': currentUserCommentLike(item)||!checkToken()}" (click)="increaseAnsEval(item.id,  upAnswerRef, downAnswerRef)"
                         class="fas fa-arrow-up ev evup"></i>
-                      <span class="ml-auto mr-auto ev">{{item.evaluation}}</span>
-                      <i #downAnswerRef (click)="decreaseAnsEval(item.id,  upAnswerRef, downAnswerRef)"
+                      <span class="ml-auto mr-auto ev">{{item.commentLikes}}</span>
+                      <i #downAnswerRef [ngClass]="{'text-muted': currentUserCommentDisLike(item)||!checkToken()}" (click)="decreaseAnsEval(item.id,  upAnswerRef, downAnswerRef)"
                         class="fas fa-arrow-down ev evdown"></i>
                     </span>
                   </div>
@@ -131,12 +130,12 @@
               أضف إجابتك
           </div>
           <div class="card-body text-right">
-              <textarea [(ngModel)]="answer" id="ansTextArea" class="p-2" style="width: 100%;height: 40vh;"></textarea>
+              <textarea [disabled]="!checkToken()" [(ngModel)]="answer" id="ansTextArea" class="p-2" style="width: 100%;height: 40vh;"></textarea>
           </div>
           <div class="card-footer fotcard1">
               <div class="d-flex bd-highlight">
                   <div class="ml-auto bd-highlight">
-                      <button (click)="AddData()" type="button" class="btn btn-dark">نشر<i class="far fa-comment-dots"></i> </button>
+                      <button [disabled]="!checkToken()" (click)="AddData()" type="button" class="btn btn-dark">نشر<i class="far fa-comment-dots"></i> </button>
                   </div>
               </div>
           </div>
@@ -148,8 +147,8 @@
           <div class="media-body">
             <h5 class="mt-0 mb-2">الاسئلة الشائعة</h5>
             <div id="commonQuestions">
-              <a *ngFor="let item of questions" routerLink="/answers/{{item.id}}" class="btn d-block text-right">
-              {{item.title}}
+              <a *ngFor="let item of asideQuestions" routerLink="/answers/{{item.id}}" class="btn d-block text-right">
+              {{item.content}}
               </a>
             </div>
           </div>
