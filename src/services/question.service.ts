@@ -23,7 +23,7 @@ export class QuestionService {
   }
 
   add(question:any){
-    return this.myClient.post(this.URL,question)
+    return this.myClient.post(this.URL+"/Add",question)
   }
 
   updateLike(id:number, question:any){
