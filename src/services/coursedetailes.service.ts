@@ -14,4 +14,7 @@ export class CoursedetailesService {
   getByID(id:number){
     return this.http.get(this.URL+"course/"+id)
   }
+  getAll(){
+    return this.http.get(this.URL+"course")
+  }
 }
