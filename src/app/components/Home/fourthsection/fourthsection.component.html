@@ -2,8 +2,20 @@
   <div class="container p-4">
               <h2 class="text-center mb-3">دوراتنا</h2>
 
-      <div class="row m-auto p-4 tracks-slider">
-        from courses component
+      <div class="row m-auto p-4">
+        <div class="col-lg-3 col-sm-12 mb-4" *ngFor="let cr of crs">
+          <div class="card h-100">
+              <img [src]="cr.image" class="card-img-top" alt="crs_image">
+              <div class="card-img-overlay ml-auto mr-auto h-100">
+                  <a class="btn btn-dark mb-1">التفاصيل</a>
+              </div>
+              <div class="card-body middle1">
+                  <h5 class="card-title text-right">
+                      {{cr.name}}
+                  </h5>
+              </div>
+          </div>
+      </div>
       </div>
   </div>
 </section>

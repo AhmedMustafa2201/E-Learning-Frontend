@@ -2,39 +2,14 @@
 <section id="sec6" class="mt-4">
   <h2 class="text-center mb-3">مقالات تهمك</h2>
   <div class="container-fluid">
-      <div class="row p-4 text-center">
+      <div class="row p-4 text-center" *ngFor="let article of articles">
           <div class="col-lg-4 mb-3">
               <div class="box m-auto">
-                  <h3>المفعول معه</h3>
+                  <h3>{{article.title}}</h3>
                   <p><span>
-                      لو بصينا في الأمثلة دي:
-                      1- استيقظ النائم وأذان الفجر.
-                      2- مشيت وشاطئ النيل.
-                      3- سار القطار وخط السكة الحديد.
-                      4- ذهبت إلى المدرسة وطلوع الشمس.......
-
+                        {{article.content | slice:0:115 }}
                       </span>
                       <a routerLink='' id="artical1">اقرأ المزيد</a></p>
-              </div>
-          </div>
-          <div class="col-lg-4 mb-3">
-              <div class="box m-auto">
-                  <h3>اسم الإشارة والبدل</h3>
-                  <p><span>
-                          - أفعال الشحاتة (كسا – منح – أعطى – وهب – آتى – ألبس – سأل ]بمعنى طلب [– منع) ... ودول مش أفعال ناسخة لأنها مش بتدخل على جملة اسمية أساسا ^_^.
-                          زي (وهب الله الانسان العقل) ...
-                      </span>
-                      <a routerLink='' id="artical2">اقرأ المزيد</a></p>
-              </div>
-          </div>
-          <div class="col-lg-4 mb-3">
-              <div class="box m-auto">
-                  <h3> الأفعال التي تنصب مفعولين ليس أصلهما المبتدأ والخبر </h3>
-                  <p><span>
-                           - أفعال الشحاتة (كسا – منح – أعطى – وهب – آتى – ألبس – سأل ]بمعنى طلب [– منع) ... ودول مش أفعال ناسخة لأنها مش بتدخل على جملة اسمية أساسا ^_^.
-                           زي (وهب الله الانسان العقل) ...
-                      </span>
-                      <a routerLink='' id="artical3">اقرأ المزيد</a></p>
               </div>
           </div>
       </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ArticleService } from 'src/services/article.service';
 
 @Component({
   selector: 'app-sectionsix',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sectionsix.component.css']
 })
 export class SectionsixComponent implements OnInit {
-
-  constructor() { }
+  articles:any;
+  constructor(private articleservice:ArticleService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.articleservice.getSomeArticles().subscribe(
+      (res)=>{this.articles=res;},
+      (err)=>{console.log(err)}
+    )
   }
 
 }

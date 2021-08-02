@@ -1,15 +1,26 @@
 <section id="sec2" class="mt-5">
   <div class="container">
        <div class="row p-4">
-           <div class="col-sm-6 text-right">
+           <div class="col-lg-6 text-right">
                <h2>الدروس الأكثر شيوعاً</h2>
            </div>
-           <div class="col-sm-6">
+           <div class="col-lg-6">
                <span><a href="./search.html">تصفح الكل</a></span>
            </div>
        </div>
-        <div *ngFor ="let lsn of lesson">
+       <div class="row main-row trending-courses">
+        <div class="col-lg-4 col-sm-12 mb-5" *ngFor="let lsn of lesson">
+          <div class="card p-3 m-auto" style="width: 18rem;">
+              <img  [src]="lsn.image" class="card-img-top shadow bg-white rounded" alt="courses" >
+              <div class="card-body">
+                  <h5 class="card-title text-right mt-3">
+                  {{lsn.title}}
+                  </h5>
+                  <button href=" #" class=" card-title btn btn-info" routerLink="">ابدأ الآن</button>
+              </div>
+          </div>
+         </div>
+      </div>
 
-        </div>
-  </div>
+    </div>
 </section>

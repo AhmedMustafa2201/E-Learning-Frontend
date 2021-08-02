@@ -12,7 +12,6 @@ export class SecondsectionComponent implements OnInit {
   lesson:any;
 
   constructor(private lsnService:LessonService,private route:ActivatedRoute) { }
-//someworkhere
   ngOnInit(): void {
     this.lsnService.getSome().subscribe(
       (res)=>{this.lesson=res;},

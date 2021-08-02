@@ -14,4 +14,7 @@ export class ArticleService {
   getByID(id:number){
     return this.http.get(this.URL+"article/"+id)
   }
+  getSomeArticles(){
+    return this.http.get(this.URL+"article")
+  }
 }

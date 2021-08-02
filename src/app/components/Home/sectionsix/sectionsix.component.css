@@ -1,20 +1,4 @@
 /* section6 */
-/* #sec6 .row .col-lg-4 .card-text a{
-    color: black;
-    transition: all .3s ease;
-}
-#sec6 .row .col-lg-4 .card-text a:hover{
-    color: red;
-    text-decoration: none;
-}
-#sec6 h2::after{
-    content: '';
-    background: black;
-    display: block;
-    height: 3px;
-    width: 170px;
-    margin: 20px auto 5px;
-} */
 h2{
   font-weight: 800;
 }
