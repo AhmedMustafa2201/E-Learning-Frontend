@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -23,7 +23,7 @@ export class QuestionService {
   }
 
   add(question:any){
-    return this.myClient.post(this.URL+"/Add",question)
+    return this.myClient.post(this.URL, question)
   }
 
   updateLike(id:number, question:any){

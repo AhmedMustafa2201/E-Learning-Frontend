@@ -118,7 +118,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   Add(btnExit:HTMLElement) {
     let question: any = {
       content: this.question,
-      views: 0,
       userId: localStorage.getItem("rnid")
     };
     this.subscriptions.push(

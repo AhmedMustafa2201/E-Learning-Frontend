@@ -6,13 +6,14 @@ import * as AOS from 'aos';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
   obj:string[]=["Admin", "Guest"];
   ngOnInit(): void {
     AOS.init();
 
     // fake logged in localstorage
-    localStorage.setItem("rnid", "99fb5a77-55d4-453f-8434-a432b0a8895c")
+    // put user id from db
+    localStorage.setItem("rnid", "6fbaa44d-a9c6-4b35-9949-a63abe966332")
     localStorage.setItem("rntoken", "a token goes here")
     localStorage.setItem("rnemail", "AhmedMustafa@gmail.com")
     localStorage.setItem("rnroles", JSON.stringify(this.obj))
