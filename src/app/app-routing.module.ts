@@ -6,6 +6,7 @@ import { ExamComponent } from './components/exam/exam.component';
 import { MasterpageComponent } from './components/Home/masterpage/masterpage.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"Home", pathMatch:"full"},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"Home", component:MasterpageComponent},
   {path:"exam/:id", component:ExamComponent},
   {path:"lesson/:id", component:LessonComponent},
+  {path:"questionpool",component:MasterquestionpoolComponent},
   {path:"**", component:ErrorComponent}
 ];
 

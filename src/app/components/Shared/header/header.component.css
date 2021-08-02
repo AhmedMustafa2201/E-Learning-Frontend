@@ -21,3 +21,15 @@ ul li{
   background-color: #292b2c;
   border: #292b2c solid 2px;
 }
+.loader{
+  z-index: 100;
+  top: 50%;
+}
+.g{
+  margin-top: 5.8%;
+  color: #00adb5;
+}
+.c{
+  color: #00adb5;
+}
+

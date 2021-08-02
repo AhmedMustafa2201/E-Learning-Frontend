@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AnswersComponent } from './components/answers/answers.component';
 import { HeaderComponent } from './components/Shared/header/header.component';
 import { FooterComponent } from './components/Shared/footer/footer.component';
@@ -20,6 +20,13 @@ import { SectionsixComponent } from './components/Home/sectionsix/sectionsix.com
 import { SectionsevenComponent } from './components/Home/sectionseven/sectionseven.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IntercepterService } from './components/loader/intercepter.service';
+import { QuestionscontComponent } from './components/questionsPool/questionscont/questionscont.component';
+import { QuestionfilterComponent } from './components/questionsPool/questionfilter/questionfilter.component';
+import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
 
 @NgModule({
   declarations: [
@@ -38,15 +45,22 @@ import { LessonComponent } from './components/lesson/lesson.component';
     SectionsixComponent,
     SectionsevenComponent,
     ExamComponent,
-    LessonComponent
+    LessonComponent,
+    QuestionscontComponent,
+    QuestionfilterComponent,
+    MasterquestionpoolComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

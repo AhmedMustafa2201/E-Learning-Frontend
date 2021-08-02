@@ -19,5 +19,8 @@
         </div>
       </div>
   </div>
-
+  <div class="fixed-top" *ngIf="loader.isloading |async" >
+    <mat-progress-bar mode="indeterminate"  [color]="color"></mat-progress-bar>
+  </div>
 </nav>
+

@@ -11,4 +11,7 @@ export class LessonService {
   getByID(id:number){
     return this.lessonClient.get(this.URL+"api/lesson/"+id)
   }
+  getSome(){
+    return this.lessonClient.get(this.URL+"api/lesson/lesson")
+  }
 }

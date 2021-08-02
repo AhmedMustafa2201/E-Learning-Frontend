@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { LessonService } from 'src/services/lesson.service';
 
 @Component({
   selector: 'app-secondsection',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secondsection.component.css']
 })
 export class SecondsectionComponent implements OnInit {
+  lesson:any;
 
-  constructor() { }
-
+  constructor(private lsnService:LessonService,private route:ActivatedRoute) { }
+//someworkhere
   ngOnInit(): void {
+    this.lsnService.getSome().subscribe(
+      (res)=>{this.lesson=res;},
+      (err)=>{console.log(err)}
+    )
   }
 
 }
