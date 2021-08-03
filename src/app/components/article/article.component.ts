@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Article } from 'src/app/Models/article';
 import { ArticleService } from 'src/services/article.service';
@@ -16,6 +16,7 @@ export class ArticleComponent implements OnInit {
   Title:string="";
   sub!:Subscription;
 
+  @ViewChild("#Con") p:ElementRef;
   constructor(private article:ArticleService,private route:ActivatedRoute) { }
 
 
@@ -24,8 +25,8 @@ export class ArticleComponent implements OnInit {
       next: res=>{
         this.lesson=res as Article;
         this.Title=this.lesson.title;
-        this.Content=this.lesson.content
-
+        this.Content=this.lesson.content;
+        // this.p.nativeElement.inner=this.Content;
       }
     })
   }
