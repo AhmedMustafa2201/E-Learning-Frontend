@@ -9,6 +9,8 @@ import { MasterpageComponent } from './components/Home/masterpage/masterpage.com
 import { LessonComponent } from './components/lesson/lesson.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 const routes: Routes = [
   {path:"", redirectTo:"Home", pathMatch:"full"},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path:"questionpool",component:MasterquestionpoolComponent},
   {path:"course/:id", component:CoursedetailesComponent},
   {path:"article/:id", component:ArticleComponent},
+  {path:"register",component:RegisterComponent},
   { path: 'admin',
   loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
