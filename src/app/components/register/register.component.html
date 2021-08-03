@@ -1,0 +1,75 @@
+<br><br> <br><br>
+<div class="container-fluid">
+  <div style="height: 100vh;" class="row p-0">
+      <div class="col-lg-5 border-info bg-light">
+          <div class="card-body">
+              <h4 class="title text-center mt-4">
+                  أنضم لنا
+              </h4>
+              <form class="form-box px-3" [formGroup]="registerfrm">
+                <div class="form-group">
+                  <!-- <span><i class="fa fa-user"></i></span> -->
+                  <input type="text" class="form-control" formControlName="FirstName"   placeholder="الاسم الاول">
+
+                </div>
+
+                <div class="form-group">
+                  <!-- <span><i class="fa fa-user"></i></span> -->
+                  <input type="text" class="form-control" formControlName="LastName" placeholder="اسم العائله">
+                </div>
+
+                <div class="form-group">
+                  <!-- <span><i class="fas fa-envelope"></i></span> -->
+                  <input type="email" class="form-control" formControlName="Email"   placeholder="البريد الالكترونى">
+                </div>
+
+                <div class="form-group">
+                  <!-- <span><i class="fa fa-phone"></i></span> -->
+                  <input type="text" class="form-control" formControlName="Phone" placeholder="رقم الهاتف">
+                </div>
+
+                <div class="form-group">
+                  <!-- <span><i class="fa fa-key"></i></span> -->
+                  <input type="password" class="form-control" formControlName="Password"   placeholder="كلمه المرور">
+                </div>
+
+                <div class="form-group">
+                  <!-- <span><i class="fa fa-key"></i></span> -->
+                  <input type="password" class="form-control" [class.is-valid]="registerfrm.controls['Password'].valid" placeholder="تأكيد كلمه المرور">
+                </div>
+
+                <div class="mb-3">
+                    <button id="regBtn" type="submit" class="btn btn-block text-uppercase">
+                        تسجيل الآن
+                    </button>
+                    <span id='error' style="display: block;" class="text-center"></span>
+                </div>
+
+
+                <hr class="my-4">
+
+                <div class="text-center mb-2">
+                    لديك حساب بالفعل!
+                    <a routerLink="/login" class="register-link">
+                        قم بتسجيل الدخول هنا
+                    </a>
+                </div>
+              </form>
+        </div>
+    </div>
+      <div class="col-lg-7  text-center  m-auto con">
+          <a style="display: block;width: 60%;margin: auto;" routerLink="/Home">
+              <img style="width: 300px;" id="personal" src="assets/images/logo.png">
+          </a>
+          علم النحو من علوم اللغة العربية ويعد العلم الأهم بينها، معرفته ضرورية على أهل الشريعة إذ مأخذ
+          الأحكام الشرعية كلها من الكتاب والسنة، وتعلم لمن أراد علم الشريعة.
+
+          والنحو هو انتحاء سمت كلام العرب في تصرفه من إعراب وغيره: كالتثنية، والجمع، والتحقير والتكسير
+          والإضافة والنسب، والتركيب، وغير ذلك، ليلحق من ليس من أهل اللغة العربية بأهلها في الفصاحة فينطق بها
+          وإنْ لم يكن منهم، وإنْ شذ بعضهم عنها رد به إليها. وهو في الأصل مصدر شائع، أي نحوت نحوًا، كقولك قصدت
+          قصدًا، ثم خصّ به انتحاء هذا القبيل من العلم" (الجزء الأول صفحة 34)، فالنحو عند ابن جني على هذا هو:
+          محاكاة العرب في طريقة كلمهم تجنبًا للّحن، وتمكينًا للمستعرب في أن يكون كالعربيّ في فصاحته وسلامة
+          لغته عند الكلام.
+      </div>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnswersComponent } from './components/answers/answers.component';
@@ -23,7 +25,11 @@ const routes: Routes = [
   { path: 'admin',
   loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
   {path:"**", component:ErrorComponent}
+
+
 ];
 
 @NgModule({

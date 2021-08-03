@@ -1,0 +1,63 @@
+<br><br> <br><br><br>
+<div class="container">
+  <div class="row px-3">
+      <div class="card flex-row mx-auto px-0">
+          <div class="card-body">
+              <a style="display: block;width: 30%;margin: auto;" routerLink="/Home">
+                  <img style="width: 105px;" id="personal" src="assets/images/logo.png">
+              </a>
+              <h4 class="title text-center mt-4">
+                  تسجيل الدخول
+              </h4>
+              <form class="form-box px-3" [formGroup]="loginfrm">
+                <div class="form-group">
+                  <input type="email" class="form-control" formControlName="Email"   placeholder="البريد الالكترونى">
+                </div>
+
+                <!-- --------------- -->
+                <div class="form-group">
+                  <input type="password" class="form-control" formControlName="Password" placeholder="كلمه السر">
+                </div>
+
+
+
+                  <div class="mb-3">
+                      <button id="loginBtn" type="submit" class="btn btn-block text-uppercase">
+                          تسجيل الدخول
+                      </button>
+                      <p id="error" class="text-center"></p>
+                  </div>
+
+                  <div class="text-center mb-3">
+                      او التسجيل من خلال
+                  </div>
+
+                  <div class="row mb-3 text-center">
+                      <div class="col-6">
+                          <div style="cursor: pointer;" id="facebookBtn" class="btn-facebook">
+                              <a>
+                                  <i class="fab fa-facebook-square"></i>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <div style="cursor: pointer;" id="googleBtn" class="btn-google">
+                              <a>
+                                  <i class="fab fa-google"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <hr class="my-4">
+
+                  <div class="text-center mb-2">
+                      ليس لديك اى حساب؟
+                      <a routerLink="/register" class="register-link">
+                          قم بالتسجيل من هنا
+                      </a>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

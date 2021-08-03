@@ -33,6 +33,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -56,10 +58,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuestionfilterComponent,
     MasterquestionpoolComponent,
     CoursedetailesComponent,
-    ArticleComponent
+    ArticleComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -69,7 +74,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
