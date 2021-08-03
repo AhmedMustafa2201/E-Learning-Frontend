@@ -33,6 +33,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuestionfilterComponent,
     MasterquestionpoolComponent,
     CoursedetailesComponent,
-    ArticleComponent
+    ArticleComponent,
+    ArticlecommentComponent
   ],
   imports: [
     BrowserModule,
