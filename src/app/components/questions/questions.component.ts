@@ -141,6 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.myService.add(question).subscribe(
       (res) => {
         btnExit.click()
+        this.question=""
         // this.getAllData()
       },
       (err) => console.error(err)

@@ -14,8 +14,8 @@ export class QuestionService {
     return this.myClient.get(this.URL)
   }
 
-  getAllWithLimited(){
-    return this.myClient.get(this.URL+"/limited")
+  getAllWithLimited(id:number){
+    return this.myClient.get(this.URL+"/limited/"+id)
   }
 
   getByID(id:number){
