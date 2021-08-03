@@ -89,8 +89,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.subscriptions.push(
       this.myService.updateLike(id, like).subscribe(
         (res) => {
-          this.questions = res as Post[];
-          this.copiedQuestions = res as Post[];
+          // this.questions = res as Post[];
+          // this.copiedQuestions = res as Post[];
           // up.classList.add('text-muted');
           // down.classList.remove('text-muted');
         },
@@ -108,8 +108,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.subscriptions.push(
       this.myService.updateDisLike(id, like).subscribe(
         (res) => {
-          this.questions = res as Post[];
-          this.copiedQuestions = res as Post[];
+          // this.questions = res as Post[];
+          // this.copiedQuestions = res as Post[];
           // down.classList.add('text-muted');
           // up.classList.remove('text-muted');
         },
@@ -141,7 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.myService.add(question).subscribe(
       (res) => {
         btnExit.click()
-        this.getAllData()
+        // this.getAllData()
       },
       (err) => console.error(err)
     ))
