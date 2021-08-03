@@ -1,22 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import{FormGroup , FormControl,Validator, Validators}from'@angular/forms'
+import{FormGroup , FormControl,Validator, Validators, FormBuilder}from'@angular/forms'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form = new FormGroup({
-    firstname: new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)]),
-    lastname : new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z]{4,}$/)]),
-    email : new FormControl('',[Validators.required,Validators.email]),
-    password : new FormControl('',Validators.required),
-    phone : new FormControl ('',[Validators.required,Validators.pattern(/^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$/)]),
-  })
-  constructor() { }
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  this.registerForm = this.formBuilder.group({
+    title: ['', Validators.required],
+    FirstName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)]],
+    LastName: ['',[ Validators.required,Validators.pattern(/^[a-zA-Z]{4,}$/)]],
+    Email: ['', [Validators.required, Validators.email]],
+    Password: ['', [Validators.required, Validators.minLength(6)]],
+    confirmPassword: ['', Validators.required],
+    PhoneNumber:['',[Validators.required,Validators.pattern(/^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$/)]]
+}, {
+    validator: this.MustMatch('Password', 'confirmPassword')
+});
+}
+get f() { return this.registerForm.controls; }
 
+onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+}
+
+onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+}
+  MustMatch(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+          return;
+      }
+      if (control.value !== matchingControl.value) {
+          matchingControl.setErrors({ mustMatch: true });
+      } else {
+          matchingControl.setErrors(null);
+      }
   }
+}
 }
 

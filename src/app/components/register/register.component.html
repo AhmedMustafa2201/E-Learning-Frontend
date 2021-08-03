@@ -1,57 +1,61 @@
 <section id="reg">
-  <div class="container-fluid p-4">
-<div class="row">
-    <div class="col-lg-4 m-auto p-4 mg">
-      <form name="form"[formGroup]="form">
-        <div class="form-group text-right">
-          <label for="firstname">الاسم الاول</label>
-          <input type="text" class="form-control"formControlName="firstname" [ngClass]="{'is-invalid':(form.get('firstname').touched || form.get('firstname').dirty) &&form.get('firstname').invalid}">
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.firstname.errors.required">الاسم الاول مطلوب</div>
-            <div *ngIf="form.controls.firstname.errors.pattern">الاسم غير صحيح</div>
-          </div>
+  <div class="container">
+      <div class="row bgd">
+        <div class="col-lg-4 mg text-right">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                        <label>الاسم الاول</label>
+                        <input type="text" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('FirstName').invalid && (registerForm.get('FirstName').touched ||registerForm.get('FirstName').dirty )||(submitted && registerForm.controls.FirstName.errors)}" />
+                      <div *ngIf="submitted||registerForm.controls.FirstName.errors" class="invalid-feedback  text-danger">
+                          <div *ngIf="registerForm.controls.FirstName.errors.required">الاسم الاول مطلوب</div>
+                          <div *ngIf="registerForm.controls.FirstName.errors.pattern">يرجي الادخال بطريقة صحيحة</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                        <label>الاسم الثاني</label>
+                        <input type="text" formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('LastName').invalid && (registerForm.get('LastName').touched ||registerForm.get('LastName').dirty)||(submitted && registerForm.controls.LastName.errors)}" />
+                      <div *ngIf="submitted || registerForm.controls.LastName.errors" class="invalid-feedback  text-danger">
+                          <div *ngIf="registerForm.controls.LastName.errors.required">اسم العائلة مطلوب</div>
+                          <div *ngIf="registerForm.controls.LastName.errors.pattern">يرجي الادخال بطريقة صحيحة</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                        <label>البريد الالكتروني</label>
+                        <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}" />
+                      <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
+                          <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني</div>
+                          <div *ngIf="registerForm.controls.Email.errors.email">يرجي ادخال البريد الالكتروني صحيح</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                        <label>كلمة السر</label>
+                        <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid':registerForm.get('Password').invalid && (registerForm.get('Password').touched ||registerForm.get('Password').dirty)||(submitted && registerForm.controls.Password.errors)}" />
+                      <div *ngIf="submitted || registerForm.controls.Password.errors" class="invalid-feedback  text-danger">
+                          <div *ngIf="registerForm.controls.Password.errors.required">كلمة السر مطلوبة</div>
+                          <div *ngIf="registerForm.controls.Password.errors.minlength">من فضلك ادخل 6 حروف علي الاقل</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                        <label>تاكيد كلمة السر</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword').invalid && (registerForm.get('confirmPassword').touched ||registerForm.get('confirmPassword').dirty)||(submitted && registerForm.controls.confirmPassword.errors) }" />
+                      <div *ngIf="submitted || registerForm.controls.confirmPassword.errors" class="invalid-feedback  text-danger">
+                          <div *ngIf="registerForm.controls.confirmPassword.errors.required">مطلوب تاكيد كلمة السر</div>
+                          <div *ngIf="registerForm.controls.confirmPassword.errors.mustMatch">يجب ان يكون متطابق مع كلمة السر</div>
+                      </div>
+                  </div>
+                  <div class="form-group text-right">
+                      <label for="phone">رقم الهاتف</label>
+                      <input type="text" formControlName="PhoneNumber" class="form-control"[ngClass]="{ 'is-invalid': registerForm.get('PhoneNumber').invalid && (registerForm.get('PhoneNumber').touched ||registerForm.get('PhoneNumber').dirty)||(submitted && registerForm.controls.PhoneNumber.errors)}" >
+                    <div *ngIf="submitted || registerForm.controls.PhoneNumber.errors" class="invalid-feedback text-danger">
+                      <div *ngIf="registerForm.controls.PhoneNumber.errors.required" >يرجي ادخال رقم الهاتف</div>
+                      <div *ngIf="registerForm.controls.PhoneNumber.errors.pattern">يرجي الادخال بطريقة صحيحة</div>
+                    </div>
+                  </div>
+                <div class="text-center">
+                  <button class="btn subbtn rounded-pill" type="submit"> التسجيل<i class="fas fa-paper-plane"></i> </button>
+                </div>
+          </form>
         </div>
-        <div class="form-group text-right">
-          <label for="lastname">اسم الاب</label>
-          <input type="text" class="form-control"formControlName="lastname" [ngClass]="{'is-invalid':(form.get('lastname').touched || form.get('lastname').dirty) && form.get('lastname').invalid}">
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.lastname.errors.required">اسم الاب مطلوب</div>
-            <div *ngIf="form.controls.lastname.errors.pattern">الاسم غير صحيح</div>
-          </div>
-        </div>
-        <div class="form-group text-right">
-          <label for="email">الايميل</label>
-          <input type="email"class="form-control"formControlName="email" [ngClass]="{'is-invalid':(form.get('email').touched || form.get('email').dirty) && form.get('email').invalid}" >
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.lastname.errors.required">الايميل مطلوب</div>
-            <div *ngIf="form.controls.lastname.errors.email">ادخل ايميل صحيح</div>
-          </div>
-        </div>
-        <div class="form-group text-right">
-          <label for="password">كلمة السر</label>
-          <input type="password"  class="form-control" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}">
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.password.errors.required">كلمة السر مطلوبة</div>
-          </div>
-        </div>
-        <!-- <div class="form-group text-right">
-          <label for="confirmpassword">تاكيد كلمة السر</label>
-          <input type="password" [(ngModel)]="confirmpassword" class="form-control">
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.confirmpassword.errors.required">الاسم الاول مطلوب</div>
-            <div *ngIf="user.password==confirmpassword">الاسم الاول مطلوب</div>
-          </div>
-        </div> -->
-        <div class="form-group text-right">
-          <label for="phone">رقم الهاتف</label>
-          <input type="text" class="form-control"formControlName="phone" [ngClass]="{'is-invalid':(form.get('phone').touched || form.get('phone').dirty) && form.get('phone').invalid}">
-          <div class="invalid-feedback text-danger">
-            <div *ngIf="form.controls.phone.errors.required">يرجي ادخال رقم الهاتف</div>
-          </div>
-        </div>
-        <button class="btn subbtn rounded-pill" type="submit"> التسجيل<i class="fas fa-paper-plane"></i> </button>
-      </form>
+      </div>
     </div>
-</div>
-</div>
 </section>

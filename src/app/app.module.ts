@@ -35,6 +35,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { RegisterComponent } from './components/register/register.component';
     CoursedetailesComponent,
     ArticleComponent,
     ArticlecommentComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
