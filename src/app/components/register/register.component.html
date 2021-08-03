@@ -1,0 +1,57 @@
+<section id="reg">
+  <div class="container-fluid p-4">
+<div class="row">
+    <div class="col-lg-4 m-auto p-4 mg">
+      <form name="form"[formGroup]="form">
+        <div class="form-group text-right">
+          <label for="firstname">الاسم الاول</label>
+          <input type="text" class="form-control"formControlName="firstname" [ngClass]="{'is-invalid':(form.get('firstname').touched || form.get('firstname').dirty) &&form.get('firstname').invalid}">
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.firstname.errors.required">الاسم الاول مطلوب</div>
+            <div *ngIf="form.controls.firstname.errors.pattern">الاسم غير صحيح</div>
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <label for="lastname">اسم الاب</label>
+          <input type="text" class="form-control"formControlName="lastname" [ngClass]="{'is-invalid':(form.get('lastname').touched || form.get('lastname').dirty) && form.get('lastname').invalid}">
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.lastname.errors.required">اسم الاب مطلوب</div>
+            <div *ngIf="form.controls.lastname.errors.pattern">الاسم غير صحيح</div>
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <label for="email">الايميل</label>
+          <input type="email"class="form-control"formControlName="email" [ngClass]="{'is-invalid':(form.get('email').touched || form.get('email').dirty) && form.get('email').invalid}" >
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.lastname.errors.required">الايميل مطلوب</div>
+            <div *ngIf="form.controls.lastname.errors.email">ادخل ايميل صحيح</div>
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <label for="password">كلمة السر</label>
+          <input type="password"  class="form-control" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}">
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.password.errors.required">كلمة السر مطلوبة</div>
+          </div>
+        </div>
+        <!-- <div class="form-group text-right">
+          <label for="confirmpassword">تاكيد كلمة السر</label>
+          <input type="password" [(ngModel)]="confirmpassword" class="form-control">
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.confirmpassword.errors.required">الاسم الاول مطلوب</div>
+            <div *ngIf="user.password==confirmpassword">الاسم الاول مطلوب</div>
+          </div>
+        </div> -->
+        <div class="form-group text-right">
+          <label for="phone">رقم الهاتف</label>
+          <input type="text" class="form-control"formControlName="phone" [ngClass]="{'is-invalid':(form.get('phone').touched || form.get('phone').dirty) && form.get('phone').invalid}">
+          <div class="invalid-feedback text-danger">
+            <div *ngIf="form.controls.phone.errors.required">يرجي ادخال رقم الهاتف</div>
+          </div>
+        </div>
+        <button class="btn subbtn rounded-pill" type="submit"> التسجيل<i class="fas fa-paper-plane"></i> </button>
+      </form>
+    </div>
+</div>
+</div>
+</section>
