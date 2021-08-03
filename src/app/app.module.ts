@@ -28,6 +28,11 @@ import { IntercepterService } from './components/loader/intercepter.service';
 import { QuestionscontComponent } from './components/questionsPool/questionscont/questionscont.component';
 import { QuestionfilterComponent } from './components/questionsPool/questionfilter/questionfilter.component';
 import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,12 @@ import { MasterquestionpoolComponent } from './components/questionsPool/masterqu
     FormsModule,
     HttpClientModule,
     MatProgressBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}

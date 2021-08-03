@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class QuestionscontComponent implements OnInit {
 
   constructor() { }
+  //just for test
+  favoriteSeason: string;
+  seasons: string[] = ['الاجابة الاولي', 'الاجابة الثانية', 'الاجابة الثالثة', 'الاجابة الرابعة'];
 
   ngOnInit(): void {
   }
