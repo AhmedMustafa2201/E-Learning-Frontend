@@ -12,4 +12,9 @@ export class MasterquestionpoolComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  topicId:number
+
+  gotoParent(e){
+    this.topicId=e
+  }
 }

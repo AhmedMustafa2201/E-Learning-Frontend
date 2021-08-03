@@ -15,16 +15,19 @@
     </ul> -->
     <form class="example-form w-100">
       <mat-form-field class="example-full-width text-center">
-        <mat-label>الدرس</mat-label>
+        <mat-label>الموضوع</mat-label>
         <input type="text"
-               placeholder="اختر الدرس"
+               placeholder="اختر الموضوع"
                aria-label="Number"
                matInput
+               name="first"
+               [(ngModel)]="inputContent"
+               (change)="sendEvent()"
                [formControl]="myControl"
                [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option class="rht" *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
+            <mat-autocomplete  #auto="matAutocomplete">
+              <mat-option (click)="getId($event)" class="rht" *ngFor="let option of options" [value]="option.title">
+                {{option.title}}
               </mat-option>
             </mat-autocomplete>
       </mat-form-field>

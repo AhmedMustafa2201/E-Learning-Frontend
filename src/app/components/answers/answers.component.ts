@@ -88,7 +88,7 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
 
   getquestionsWithLimited() {
     this.subscriptions.push(
-      this.qService.getAllWithLimited().subscribe(
+      this.qService.getAllWithLimited(this.id).subscribe(
         (res) => {
           this.asideQuestions = res as Post[]
         },
