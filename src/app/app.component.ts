@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
     // fake logged in localstorage
     // put user id from db
-    localStorage.setItem("rnid", "6fbaa44d-a9c6-4b35-9949-a63abe966332")
+    localStorage.setItem("rnid", "08751192-69ea-484a-89f9-9f369515bddf")
     localStorage.setItem("rntoken", "a token goes here")
     localStorage.setItem("rnemail", "AhmedMustafa@gmail.com")
     localStorage.setItem("rnroles", JSON.stringify(this.obj))
