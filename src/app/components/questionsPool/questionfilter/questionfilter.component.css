@@ -19,3 +19,19 @@
   background-color: transparent;
   color: #f44336;
 }
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.example-full-width {
+  width: 80%;
+  text-align: right;
+  font-weight: 500;
+}
+.rht{
+  text-align: center;
+  font-weight: 500;
+}
