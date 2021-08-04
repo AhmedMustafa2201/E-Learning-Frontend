@@ -1,5 +1,9 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import{FormGroup , FormControl,Validator, Validators, FormBuilder}from'@angular/forms'
+import { AuthService } from './../../../services/auth.service';
+import { AuthModel } from './../../Models/iauth-model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,11 +13,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private authsrvc:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   this.registerForm = this.formBuilder.group({
-    title: ['', Validators.required],
     FirstName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)]],
     LastName: ['',[ Validators.required,Validators.pattern(/^[a-zA-Z]{4,}$/)]],
     Email: ['', [Validators.required, Validators.email]],
@@ -32,12 +35,25 @@ onSubmit() {
         return;
     }
 
+  this.authsrvc.Register(this.registerForm.value).subscribe(
+    res=>{
+      var resp = res as AuthModel;
+      localStorage.setItem("rnid", resp.id)
+      localStorage.setItem("rntoken", resp.token)
+      localStorage.setItem("rnemail", resp.email)
+      localStorage.setItem("rnroles", JSON.stringify(resp.roles))
+      this.router.navigateByUrl("/Home")
+    }
+   ,
+    err=>alert(err.error)
+  )
 }
 
 onReset() {
     this.submitted = false;
     this.registerForm.reset();
 }
+
   MustMatch(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
