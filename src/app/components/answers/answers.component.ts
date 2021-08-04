@@ -240,6 +240,7 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
 
 
   AddData() {
+    if(this.answer.trim()!=""){
     let answerObj: any = {
       content: this.answer,
       postId: this.id,
@@ -255,4 +256,5 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
       (err)=>console.error(err)
     )
   }
+}
 }

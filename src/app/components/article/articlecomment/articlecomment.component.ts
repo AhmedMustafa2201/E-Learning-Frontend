@@ -7,6 +7,7 @@ import * as signalR from '@microsoft/signalr';
 import { AuthService } from 'src/services/auth.service';
 import { stringify } from '@angular/compiler/src/util';
 import { AuthModel } from 'src/app/Models/iauth-model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-articlecomment',
@@ -35,9 +36,12 @@ export class ArticlecommentComponent implements OnInit {
 
    }
 
-
+   IsLogged(){
+    return !localStorage.getItem('rnemail')
+   }
 
   addComment(){
+    if(this.commentContent.trim()!=""){
     let newComment ={
       lessonId:this.id,
       userId: localStorage.getItem("rnid"),
@@ -51,9 +55,12 @@ export class ArticlecommentComponent implements OnInit {
       },
       error: (err) => (this.err = err),
     })
+    }
   }
 
-
+  getEstimatedDate(date: string): string {
+    return moment(date).locale('ar').fromNow();
+  }
 
   getData(){
     this.sub=this.LessonComment.getAll(this.id).subscribe({
