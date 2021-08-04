@@ -53,6 +53,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   checkToken(){
     return localStorage.getItem("rntoken")
   }
+  gotoLogin(exitModal:HTMLElement){
+    exitModal.click()
+    this.router.navigateByUrl("/login")
+  }
   getAllData() {
     this.subscriptions.push(
       this.myService.getAll().subscribe(

@@ -21,8 +21,12 @@ export class LessonService {
   getAll(){
     return this.lessonClient.get(this.URL+"api/lesson")
   }
+  getRelated(id:number){
+    return this.lessonClient.get(this.URL+"api/lesson/topic/"+id)
+  }
+
   update(lsn:Lesson){
-    console.log("in update2");
+
     return this.lessonClient.put<Lesson>(this.URL+"api/lesson",lsn)
   }
 }

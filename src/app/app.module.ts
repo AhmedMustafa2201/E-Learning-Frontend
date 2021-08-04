@@ -42,6 +42,8 @@ import { AllLessonsComponent } from './components/all-lessons/all-lessons.compon
 import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
 
 
+import { ProfileComponent } from './components/profile/profile.component';
+import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,10 @@ import { AllcoursesComponent } from '../app/components/allcourses/allcourses.com
     AllLessonsComponent,
     AllcoursesComponent,
 
+    ProfileComponent,
+    AllLessonsComponent,
+    AllcoursesComponent,
+    AllArticlesComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +93,7 @@ import { AllcoursesComponent } from '../app/components/allcourses/allcourses.com
     ReactiveFormsModule,
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true},
   ],
   bootstrap: [AppComponent]
 })

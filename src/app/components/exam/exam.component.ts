@@ -46,11 +46,11 @@ export class ExamComponent implements OnInit,OnDestroy{
           let opt =question.children[j].children[0]
 
           if(opt.checked){
-            this.renderer.setStyle(question.children[j],"backgroundColor","red")
+            this.renderer.setStyle(question.children[j],"backgroundColor","#ef3138")
           }
 
           if(opt.dataset.ans=="true"){
-            this.renderer.setStyle(question.children[j],"backgroundColor","green")
+            this.renderer.setStyle(question.children[j],"backgroundColor","#27df99")
           }
 
           if(opt.checked && opt.dataset.ans=="true" ){

@@ -17,4 +17,11 @@ export class ArticleService {
   getSomeArticles(){
     return this.http.get(this.URL+"article")
   }
+
+  getAllArticle(){
+    return this.http.get(this.URL+"article/article")
+  }
+  getRelated(id:number){
+    return this.http.get(this.URL+"article/topic/"+id)
+  }
 }

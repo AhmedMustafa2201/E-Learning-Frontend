@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
 
+
+
   constructor(private formBuilder: FormBuilder,private authsrvc:AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -48,8 +50,7 @@ onSubmit() {
       localStorage.setItem("rnemail", resp.email)
       localStorage.setItem("rnroles", JSON.stringify(resp.roles))
       this.router.navigateByUrl("/Home")
-    }
-   ,
+    },
     err=>alert(err.error)
   )
 }

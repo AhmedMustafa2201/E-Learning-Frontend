@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Auth/auth.guard';
-<<<<<<< HEAD
+import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
-=======
 import { AllcoursesComponent } from './components/allcourses/allcourses.component';
->>>>>>> 9be91294c70714d4c622ebb4a67f239c60fb7d3c
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
@@ -14,6 +12,7 @@ import { ExamComponent } from './components/exam/exam.component';
 import { MasterpageComponent } from './components/Home/masterpage/masterpage.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -31,8 +30,10 @@ const routes: Routes = [
   {path:"courses", component:AllcoursesComponent},
   {path:"article/:id", component:ArticleComponent},
   {path:"register",component:RegisterComponent},
+  {path:"profile",component:ProfileComponent},
   {path:"login",component:LoginComponent},
   {path:"lessons",component:AllLessonsComponent},
+  {path:"Articles",component:AllArticlesComponent},
   { path: 'admin',
   loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
