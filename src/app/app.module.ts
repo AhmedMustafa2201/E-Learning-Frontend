@@ -35,9 +35,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
+
+
 import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
+
+
+import { ProfileComponent } from './components/profile/profile.component';
 import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 
 @NgModule({
@@ -66,6 +71,9 @@ import { AllArticlesComponent } from './components/all-articles/all-articles.com
     ArticlecommentComponent,
     RegisterComponent,
     LoginComponent,
+    AllLessonsComponent,
+    AllcoursesComponent,
+
     ProfileComponent,
     AllLessonsComponent,
     AllcoursesComponent,

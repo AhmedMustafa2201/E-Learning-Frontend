@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { LessonCommentService } from './../../../../services/lesson-comment.service';
+import { articleComment } from './../../../Models/articleComment';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { ActivatedRoute } from '@angular/router';
+import * as signalR from '@microsoft/signalr';
 
 @Component({
   selector: 'app-articlecomment',
@@ -7,9 +12,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlecommentComponent implements OnInit {
 
-  constructor() { }
+  comments:articleComment[];
+  commentContent:string='';
+  err:string;
+  sub:Subscription;
+  sub2:Subscription;
+  id:number;
+
+  @ViewChild('#txtArea') txtArea:ElementRef;
+
+  constructor(private LessonComment:LessonCommentService,route: ActivatedRoute) {
+  this.id = route.snapshot.params.id;
+
+   }
+
+
+
+  addComment(){
+    let newComment ={
+      lessonId:this.id,
+      userId: localStorage.getItem("rnid"),
+      content:this.commentContent
+    };
+    this.sub2 = this.LessonComment.Comment(newComment).subscribe({
+      next: res=>{
+        newComment=null;
+        this.commentContent='';
+      },
+      error: (err) => (this.err = err),
+    })
+  }
+
+  getData(){
+    this.sub=this.LessonComment.getAll(this.id).subscribe({
+      next: res=>{
+        this.comments =res as articleComment[]
+
+      },
+      error: (err) => (this.err = err),
+    })
+  }
 
   ngOnInit(): void {
+    this.getData();
+
+    const connection = new signalR.HubConnectionBuilder()
+    .configureLogging(signalR.LogLevel.Information)
+    .withUrl("https://localhost:44329/notify")
+    .build();
+
+    connection.start().then(function () {
+      console.log('SignalR Connected!');
+    }).catch(function (err) {
+      return console.error(err.toString());
+    });
+
+    connection.on("comment", () => {
+      this.getData();
+    });
+
   }
+
 
 }
