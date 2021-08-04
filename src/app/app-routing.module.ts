@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Auth/auth.guard';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
@@ -18,8 +19,8 @@ const routes: Routes = [
   {path:"questions", component:QuestionsComponent},
   {path:"answers/:id", component:AnswersComponent},
   {path:"Home", component:MasterpageComponent},
-  {path:"exam/:id", component:ExamComponent},
-  {path:"lesson/:id", component:LessonComponent},
+  {path:"exam/:id", component:ExamComponent ,canActivate:[AuthGuard]},
+  {path:"lesson/:id", component:LessonComponent ,canActivate:[AuthGuard]},
   {path:"questionpool",component:MasterquestionpoolComponent},
   {path:"course/:id", component:CoursedetailesComponent},
   {path:"article/:id", component:ArticleComponent},
