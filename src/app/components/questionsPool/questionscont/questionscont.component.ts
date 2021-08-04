@@ -45,12 +45,15 @@ export class QuestionscontComponent implements OnInit, OnChanges {
     )
   }
 
-  trueOrFalse(optionId:number, btnModal:HTMLElement){
+  trueOrFalse(optionId:number, questionId:number, btnModal:HTMLElement){
+    this.examQuestions.filter(e=>{
+      if(e.id==questionId){
+        this.correctAnswer = e.options.find(op=>op.isCorrect).content
+      }
+    })
     this.examQuestions.map(e=>{
       e.options.forEach(op=>{
-        if(op.isCorrect){
-          this.correctAnswer=op.content
-        }
+
         if(op.optionId==optionId){
           if(op.isCorrect)
             btnModal.setAttribute('data-target','#exampleModal')

@@ -31,7 +31,7 @@
 
                 <!-- [(ngModel)]="favoriteSeason" -->
                 <mat-radio-group aria-labelledby="firstquestionid" class="example-radio-group" layout-align="center center">
-                    <mat-radio-button (click)="trueOrFalse(answer.optionId, btnModal)" class="example-radio-button" [id]="answer.optionId.toString()" *ngFor="let answer of question.options" [value]="answer.content">
+                    <mat-radio-button (click)="trueOrFalse(answer.optionId,question.id, btnModal)" class="example-radio-button" [id]="answer.optionId.toString()" *ngFor="let answer of question.options" [value]="answer.content">
                         &nbsp;&nbsp; {{answer.content}}
                     </mat-radio-button>
                 </mat-radio-group>
@@ -70,7 +70,7 @@
             </div>
             <div class="modal-body text-center modelfont">
                 الاجابة خاطئة<br>
-                <!-- الاجابة الصحيحة هي "{{correctAnswer}}" -->
+                الاجابة الصحيحة هي "{{correctAnswer}}"
             </div>
         </div>
     </div>

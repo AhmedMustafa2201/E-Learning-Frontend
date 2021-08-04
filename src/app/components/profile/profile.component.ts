@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
       res=>{
         this.user=res
         this.email=this.user.email
-        console.log(this.user)
+        // console.log(this.user)
       },
       err=>console.error(err)
     )
@@ -63,7 +63,10 @@ export class ProfileComponent implements OnInit {
   }
 
   getImg(img): string{
-    return img==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+img
+    if(img==null) {
+      localStorage.removeItem("rnimage")
+      return "assets/images/person-icon.png"
+    } else { return "https://localhost:44329/"+img}
   }
 
   uploadPhoto(files, image:HTMLElement){
