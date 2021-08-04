@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Auth/auth.guard';
-<<<<<<< HEAD
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
-=======
+
 import { AllcoursesComponent } from './components/allcourses/allcourses.component';
->>>>>>> 9be91294c70714d4c622ebb4a67f239c60fb7d3c
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
