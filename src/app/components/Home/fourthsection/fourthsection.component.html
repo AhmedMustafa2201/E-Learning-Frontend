@@ -6,7 +6,7 @@
         <div class="col-lg-3 col-sm-12 mb-4 aos-init aos-animate" data-aos="fade-in" data-aos-offset="200"
          data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" *ngFor="let cr of crs" >
           <div class="card h-100">
-              <img [src]="cr.image" class="card-img-top" alt="crs_image">
+              <img src="https://img.youtube.com/vi/{{cr.image}}/0.jpg" class="card-img-top" alt="crs_image">
               <div class="card-img-overlay ml-auto mr-auto h-100">
                   <a class="btn btn-dark mb-1" routerLink="/course/{{cr.id}}">التفاصيل</a>
               </div>
