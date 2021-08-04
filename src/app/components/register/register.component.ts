@@ -13,11 +13,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 9be91294c70714d4c622ebb4a67f239c60fb7d3c
   constructor(private formBuilder: FormBuilder,private authsrvc:AuthService,private router:Router) { }
 
   ngOnInit(): void {
