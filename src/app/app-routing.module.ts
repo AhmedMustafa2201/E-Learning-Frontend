@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Auth/auth.guard';
+import { AllcoursesComponent } from './components/allcourses/allcourses.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"lesson/:id", component:LessonComponent ,canActivate:[AuthGuard]},
   {path:"questionpool",component:MasterquestionpoolComponent},
   {path:"course/:id", component:CoursedetailesComponent},
+  {path:"courses", component:AllcoursesComponent},
   {path:"article/:id", component:ArticleComponent},
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},

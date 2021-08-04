@@ -5,11 +5,11 @@
       <div class="row p-4 text-center" *ngFor="let article of articles">
           <div class="col-lg-4 mb-3">
               <div class="box m-auto">
-                  <h3>{{article.title}}</h3>
-                  <p><span>
-                        {{article.content | slice:0:115 }}
-                      </span>
-                      <a routerLink='{{article.id}}'>اقرأ المزيد</a></p>
+                <h3>{{article.title}}</h3>
+                <p><span>
+                      {{article.content | slice:0:115 }}
+                    </span>
+                    <a routerLink='{{article.id}}'>اقرأ المزيد</a></p>
               </div>
           </div>
       </div>

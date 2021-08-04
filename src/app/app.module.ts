@@ -21,7 +21,6 @@ import { ExamComponent } from './components/exam/exam.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
 import { ArticleComponent } from './components/article/article.component';
-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntercepterService } from './components/loader/intercepter.service';
@@ -36,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import { LoginComponent } from './components/login/login.component';
     ArticleComponent,
     ArticlecommentComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AllcoursesComponent,
   ],
   imports: [
     BrowserModule,
