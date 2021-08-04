@@ -5,5 +5,6 @@ export class Lesson {
   id:number;
   title:string;
   image:string;
-  createdAt:Date
+  createdAt:Date;
+  discription:string;
 }
