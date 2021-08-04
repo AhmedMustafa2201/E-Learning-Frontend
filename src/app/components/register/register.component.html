@@ -23,7 +23,7 @@
                         <label>البريد الالكتروني</label>
                         <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}" />
                       <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
-                          <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني</div>
+                          <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني مطلوب</div>
                           <div *ngIf="registerForm.controls.Email.errors.email">يرجي ادخال البريد الالكتروني صحيح</div>
                       </div>
                   </div>

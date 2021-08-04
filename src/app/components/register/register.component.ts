@@ -9,21 +9,22 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
   this.registerForm = this.formBuilder.group({
-    title: ['', Validators.required],
     FirstName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)]],
     LastName: ['',[ Validators.required,Validators.pattern(/^[a-zA-Z]{4,}$/)]],
     Email: ['', [Validators.required, Validators.email]],
     Password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', Validators.required],
     PhoneNumber:['',[Validators.required,Validators.pattern(/^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$/)]]
-}, {
+  }, {
     validator: this.MustMatch('Password', 'confirmPassword')
-});
-}
+  });
+  }
 get f() { return this.registerForm.controls; }
 
 onSubmit() {
