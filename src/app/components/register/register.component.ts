@@ -18,6 +18,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(localStorage.getItem("rntoken"))
+      this.router.navigateByUrl("/Home")
+
   this.registerForm = this.formBuilder.group({
     FirstName: ['', [Validators.required,Validators.minLength(3)]],
     LastName: ['',[ Validators.required,Validators.minLength(3)]],
