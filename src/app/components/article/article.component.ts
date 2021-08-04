@@ -26,7 +26,6 @@ export class ArticleComponent implements OnInit {
         this.lesson=res as Article;
         this.Title=this.lesson.title;
         this.Content=this.lesson.content;
-        // this.p.nativeElement.inner=this.Content;
       }
     })
   }
