@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { Router, NavigationStart , NavigationEnd, NavigationCancel, NavigationError,Event  } from '@angular/router';
 import { LoaderService } from '../../loader/loader.service';
@@ -9,6 +9,7 @@ import { LoaderService } from '../../loader/loader.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  imageUrl:string
   color: ThemePalette = 'warn';
  ShowLoadIndcate:boolean = true;
  userEmail:string = localStorage.getItem("rnemail")
@@ -16,9 +17,17 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    setInterval(()=>this.userEmail=localStorage.getItem("rnemail"),500)
-
+    setInterval(()=>{
+      this.userEmail=localStorage.getItem("rnemail")
+      this.imageUrl=localStorage.getItem("rnimage")
+    },500)
   }
+
+  getImg(): string{
+    return this.imageUrl==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+this.imageUrl
+  }
+
+
   logOut(){
     localStorage.removeItem("rnid")
     localStorage.removeItem("rntoken")

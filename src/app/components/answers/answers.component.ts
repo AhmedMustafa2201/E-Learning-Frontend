@@ -245,6 +245,7 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
     this.myService.add(answerObj).subscribe(
       (res)=>{
         // console.log(res)
+        this.answer=""
         this.getquestionWithAnswers()
       },
       (err)=>console.error(err)

@@ -80,7 +80,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ReactiveFormsModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true},
   ],
   bootstrap: [AppComponent]
 })

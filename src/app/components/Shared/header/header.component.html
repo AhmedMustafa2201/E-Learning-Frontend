@@ -18,7 +18,7 @@
                 <button type="button" routerLink="/login" class="btn btn-outline-dark rd"><i class="fas fa-sign-in-alt"></i> دخول</button>
             </div>
             <div *ngIf="userEmail" class="signout">
-                <img routerLink="/profile" title="{{userEmail}}" src="../../../../assets/images/person-icon.png" style="width: 45px;height: 45px;margin-left: 10px;margin-right: 1em;border-radius: 50% 50%;" alt="">
+                <img routerLink="/profile" title="{{userEmail}}" [src]="getImg()" style="width: 45px;height: 45px;margin-left: 10px;margin-right: 1em;border-radius: 50% 50%;" alt="">
                 <button class="btn btn-outline-dark rd" style="height: 10%; margin: auto 0;" id="signout" (click)="logOut()">سجل الخروج</button>
             </div>
         </div>

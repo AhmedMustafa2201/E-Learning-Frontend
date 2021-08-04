@@ -18,21 +18,21 @@
           <div class="col-12  d-flex justify-content-center ">
               <div class="card border-none shadow ">
                   <div class="d-flex justify-content-center" style="margin-top: 2em;">
-                      <img id="profile-img" class="rounded-circle mx-auto position-relative" src="https://firebasestorage.googleapis.com/v0/b/elearning-fefd0.appspot.com/o/YIBLWKw9YZbG4pcnoXheDFUaZhF2?alt=media&amp;token=5533ec8d-8353-4887-b76f-5198097db67d" alt="profile_pic" width="200px" height="200px">
-                      <input onchange="uploadPhoto(this)" type="file" id="file-upload" hidden="">
+                      <img #image id="profile-img" class="rounded-circle mx-auto position-relative" [src]="getImg(user.image)" alt="profile_pic" width="200px" height="200px">
+                      <input #file (change)="uploadPhoto(file.files, image)" type="file" id="file-upload" hidden="">
                       <button id="save-photo" type="button" onclick="document.getElementById('file-upload').click();" class="btnn ">تعديل</button>
                   </div>
 
 
                   <div class="card-body">
-                      <div class="d-flex justify-content-around mb-5">
+                      <div class="d-flex justify-content-around mb-3">
                           <div>
-                              <span class="ml-3">35</span>
+                              <span class="ml-3">13</span>
                               <p class="m-0 text-black-50">الأسئله</p>
                           </div>
                           <div>
-                              <span class="ml-3">10</span>
-                              <p class="m-0 text-black-50 ">الدورات</p>
+                              <span class="ml-3">4</span>
+                              <p class="m-0 text-black-50">الدورات</p>
                           </div>
                           <!-- <div>
                               <span class="ml-3">15</span>
@@ -40,7 +40,7 @@
                           </div> -->
                       </div>
                       <div id="profile-name" class="mb-4">
-                          <h3 class="text-center mb-0">ahmed mostafa</h3>
+                          <h3 class="text-center mb-0">{{ user.firstName +' '+user.lastName }}</h3>
                           <!-- <p class="m-0 text-black-50 h6 font-weight-lighter text-center">مصر,القاهرة</p> -->
                       </div>
                       <!-- <div class="d-flex justify-content-center mb-0">
@@ -69,16 +69,19 @@
                   </div>
                   <div class="card-body bg-cusGray px-4">
                       <div class="needs-validation" novalidate="">
+                        <form #frm="ngForm" (ngSubmit)="onSubmit()">
                           <div class="form-row">
                               <div class="col-md-6 mb-3 text-right first-name">
                                   <label for="validationCustom01">الاسم الأول</label>
-                                  <input type="text" class="form-control text-right" id="validationCustom01" placeholder="الاسم الاول" required="">
-
+                                  <input #fname="ngModel" [(ngModel)]="user.firstName" name="fname" type="text" class="form-control text-right" id="validationCustom01" placeholder="الاسم الاول" required minlength="3"
+                                    [ngClass]="{ 'is-invalid': fname.invalid && (fname.touched ||fname.dirty)}">
+                                  <small id="helpId" [hidden]="fname.valid || fname.pristine" class="text-danger">برجاء كتابة الاسم الاول</small>
                               </div>
                               <div class="col-md-6 mb-3 text-right last-name">
                                   <label for="validationCustom02">الاسم الأخير</label>
-                                  <input type="text" class="form-control text-right " id="validationCustom02" placeholder="الاسم الأخير" required="">
-
+                                  <input #lname="ngModel" [(ngModel)]="user.lastName" name="lname" type="text" class="form-control text-right " id="validationCustom02" placeholder="الاسم الأخير" required minlength="3"
+                                    [ngClass]="{ 'is-invalid': lname.invalid && (lname.touched ||lname.dirty)}">
+                                  <small id="helpId" [hidden]="lname.valid || lname.pristine" class="text-danger">برجاء كتابة الاسم الاخير</small>
                               </div>
                           </div>
 
@@ -87,14 +90,15 @@
                           <div class="form-row">
                               <div class="col-md-6 mb-3 text-right phone-number">
                                   <label for="validationCustom03">رقم الهاتف</label>
-                                  <input type="text" class="form-control" id="validationCustom03">
+                                  <input #phone="ngModel" required maxlength="11" minlength="11" [(ngModel)]="user.phoneNumber" name="phone" type="text" class="form-control" id="validationCustom03"
+                                    [ngClass]="{ 'is-invalid': phone.invalid && (phone.touched ||phone.dirty)}">
+                                  <small id="helpId" [hidden]="lname.valid || lname.pristine" class="text-danger">برجاء كتابة رقم الهاتف</small>
 
                               </div>
                               <div class="col-md-3 mb-3 text-right">
                                   <label for="validationCustom04">المدينة</label>
                                   <select class="custom-select text-right" id="validationCustom04" required="">
-                                  <option class="text-right" selected="" disabled="" value="">اختر</option>
-                                  <option>المنيا</option>
+                                  <option selected>المنيا</option>
                                   <option>القاهرة</option>
                                   <option>الجيزة</option>
                                   <option>البحيرة</option>
@@ -137,18 +141,22 @@
                               </div> -->
 
                           </div>
-                          <button id="save-profile" class="btn btn-primary mb-2" type="submit">حفظ التعديلات</button>
+                          <button id="save-profile"  class="btn btn-primary mb-2" type="submit">حفظ التعديلات</button>
+
+                        </form>
+
+                        <hr class="my-4 ">
+
+                          <div class="form-row">
+
+                              <div class="col-md-12 mb-3 text-right">
+                                  <label for="email">البريد الالكتروني</label>
+                                  <input autocomplete="off" [(ngModel)]="email" type="email" class="form-control text-right " id="email" placeholder=" " required="">
+                              </div>
+                          </div>
+                          <button (click)="updateEmail()" class="btn btn-primary mb-2" type="submit">حفظ التعديلات</button>
 
                           <hr class="my-4 ">
-
-                          <!-- <div class="form-row">
-
-                              <div class="col-md-6 mb-3 text-right">
-                                  <label for="email">البريد الالكتروني</label>
-                                  <input type="text" class="form-control text-right " id="email" placeholder=" " required="">
-
-                              </div>
-                          </div> -->
 
                           <div class="form-row">
                               <div class="col-md-6 mb-3 text-right">

@@ -7,7 +7,6 @@ import * as AOS from 'aos';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  obj:string[]=["Admin", "Guest"];
   ngOnInit(): void {
     AOS.init();
 
@@ -22,4 +21,5 @@ export class AppComponent implements OnInit {
     // localStorage.setItem("rnisauthinticated", "true")
 
   }
+
 }
