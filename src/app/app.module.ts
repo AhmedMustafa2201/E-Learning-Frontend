@@ -21,7 +21,6 @@ import { ExamComponent } from './components/exam/exam.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
 import { ArticleComponent } from './components/article/article.component';
-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IntercepterService } from './components/loader/intercepter.service';
@@ -37,6 +36,8 @@ import { ArticlecommentComponent } from './components/article/articlecomment/art
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
+import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     ArticlecommentComponent,
     RegisterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    AllLessonsComponent,
+    AllcoursesComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true},
