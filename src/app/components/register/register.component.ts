@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
 
+
+
   constructor(private formBuilder: FormBuilder,private authsrvc:AuthService,private router:Router) { }
 
   ngOnInit(): void {

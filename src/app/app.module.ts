@@ -35,10 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
-
-
 import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
 
 @NgModule({
@@ -68,7 +65,6 @@ import { AllcoursesComponent } from '../app/components/allcourses/allcourses.com
     RegisterComponent,
     LoginComponent,
     AllLessonsComponent,
-
     AllcoursesComponent,
   ],
   imports: [

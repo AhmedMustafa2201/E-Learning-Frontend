@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Auth/auth.guard';
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
-
 import { AllcoursesComponent } from './components/allcourses/allcourses.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
