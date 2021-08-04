@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Auth/auth.guard';
+import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { ArticleComponent } from './components/article/article.component';
 import { CoursedetailesComponent } from './components/coursedetailes/coursedetailes.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:"article/:id", component:ArticleComponent},
   {path:"register",component:RegisterComponent},
   {path:"login",component:LoginComponent},
+  {path:"lessons",component:AllLessonsComponent},
   { path: 'admin',
   loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },

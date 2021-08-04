@@ -36,6 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { LoginComponent } from './components/login/login.component';
     ArticleComponent,
     ArticlecommentComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AllLessonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,7 @@ import { LoginComponent } from './components/login/login.component';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
