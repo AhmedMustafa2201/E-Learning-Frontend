@@ -43,8 +43,7 @@ onSubmit() {
       localStorage.setItem("rnemail", resp.email)
       localStorage.setItem("rnroles", JSON.stringify(resp.roles))
       this.router.navigateByUrl("/Home")
-    }
-   ,
+    },
     err=>alert(err.error)
   )
 }

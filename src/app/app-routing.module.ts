@@ -7,6 +7,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { MasterpageComponent } from './components/Home/masterpage/masterpage.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"course/:id", component:CoursedetailesComponent},
   {path:"article/:id", component:ArticleComponent},
   {path:"register",component:RegisterComponent},
+  {path:"profile",component:ProfileComponent},
   { path: 'admin',
   loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule)
   },
