@@ -24,9 +24,9 @@ export class ProfileComponent implements OnInit {
     }
     this.athservice.changePassword(user).subscribe(
       res=>{
-        alert("done!!!")
+        alert("تم التعديل بنجاح")
       },
-      err=>console.error(err)
+      err=>alert(err.error)
     )
   }
 

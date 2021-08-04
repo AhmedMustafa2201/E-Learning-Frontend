@@ -13,20 +13,25 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
+
   constructor(private formBuilder: FormBuilder,private authsrvc:AuthService,private router:Router) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem("rntoken"))
+      this.router.navigateByUrl("/Home")
+
   this.registerForm = this.formBuilder.group({
-    FirstName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)]],
-    LastName: ['',[ Validators.required,Validators.pattern(/^[a-zA-Z]{4,}$/)]],
+    FirstName: ['', [Validators.required,Validators.minLength(3)]],
+    LastName: ['',[ Validators.required,Validators.minLength(3)]],
     Email: ['', [Validators.required, Validators.email]],
-    Password: ['', [Validators.required, Validators.minLength(6)]],
+    Password: ['', [Validators.required, Validators.minLength(6),Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=.*[$@$!#%*?&])(?=[^A-Z]*[A-Z]).{8,30}$/)]],
     confirmPassword: ['', Validators.required],
     PhoneNumber:['',[Validators.required,Validators.pattern(/^([-]|[.]|[-.]|[0-9])[0-9]*[.]*[0-9]+$/)]]
-}, {
+  }, {
     validator: this.MustMatch('Password', 'confirmPassword')
-});
-}
+  });
+  }
 get f() { return this.registerForm.controls; }
 
 onSubmit() {

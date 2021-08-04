@@ -19,4 +19,7 @@ export class AuthService {
     return this.client.post(this.URL+"Auth/changePassword",user)
   }
 
+  login(user){
+    return this.client.post(this.URL+"Auth/login",user)
+  }
 }
