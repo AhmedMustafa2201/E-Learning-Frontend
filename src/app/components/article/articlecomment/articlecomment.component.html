@@ -3,9 +3,9 @@
       <div class="card text-right"*ngFor='let comment of comments'>
         <div class="card-body">
           <div class="media text-right">
-            <img src="https://randomuser.me/api/portraits/women/49.jpg" class="align-self-start ml-3" alt="...">
+            <img src="../../../../assets/images/person-icon.png" class="align-self-start ml-3" alt="...">
             <div class="media-body" >
-              <h1 class="m-0">مريم محمد</h1>
+              <h1 class="m-0">{{comment.userName}}</h1>
               <p>
                 <i class="far fa-clock mt-2">{{comment.createdAt | date :'short'}}</i>
               </p>

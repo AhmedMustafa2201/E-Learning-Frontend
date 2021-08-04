@@ -4,6 +4,9 @@ import { articleComment } from './../../../Models/articleComment';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import * as signalR from '@microsoft/signalr';
+import { AuthService } from 'src/services/auth.service';
+import { stringify } from '@angular/compiler/src/util';
+import { AuthModel } from 'src/app/Models/iauth-model';
 
 @Component({
   selector: 'app-articlecomment',
@@ -12,17 +15,23 @@ import * as signalR from '@microsoft/signalr';
 })
 export class ArticlecommentComponent implements OnInit {
 
-  comments:articleComment[];
+  comments:any[];
   commentContent:string='';
   err:string;
   sub:Subscription;
   sub2:Subscription;
   id:number;
+  user:any;
+  userName:string;
+  userImg:string;
+  usersId:Array<any>;
+
+
 
   @ViewChild('#txtArea') txtArea:ElementRef;
 
-  constructor(private LessonComment:LessonCommentService,route: ActivatedRoute) {
-  this.id = route.snapshot.params.id;
+  constructor(private LessonComment:LessonCommentService,route: ActivatedRoute ,private userservice:AuthService) {
+      this.id = route.snapshot.params.id;
 
    }
 
@@ -38,16 +47,18 @@ export class ArticlecommentComponent implements OnInit {
       next: res=>{
         newComment=null;
         this.commentContent='';
+
       },
       error: (err) => (this.err = err),
     })
   }
 
+
+
   getData(){
     this.sub=this.LessonComment.getAll(this.id).subscribe({
       next: res=>{
         this.comments =res as articleComment[]
-
       },
       error: (err) => (this.err = err),
     })
@@ -55,6 +66,7 @@ export class ArticlecommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    // console.log(this.user.id)
 
     const connection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
