@@ -38,6 +38,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
 import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
+import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AllcoursesComponent } from '../app/components/allcourses/allcourses.com
     ProfileComponent,
     AllLessonsComponent,
     AllcoursesComponent,
+    AllArticlesComponent,
   ],
   imports: [
     BrowserModule,
