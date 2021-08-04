@@ -27,13 +27,13 @@ export class ExamComponent implements OnInit,OnDestroy{
       (err)=>console.log(err)
     )
 
-    this.subscriptions.push(subscription)
+    // this.subscriptions.push(subscription)
   }
 
   ngOnDestroy(): void {
-    for(let sub of this.subscriptions){
-      sub.unsubscribe()
-    }
+    // for(let sub of this.subscriptions){
+    //   sub.unsubscribe()
+    // }
     }
 
   calc(){

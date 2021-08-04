@@ -86,6 +86,10 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
 
+  getImg(image){
+    return image==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+image
+  }
+
   getquestionsWithLimited() {
     this.subscriptions.push(
       this.qService.getAllWithLimited(this.id).subscribe(

@@ -9,9 +9,10 @@
         <div class="collapse navbar-collapse mr-4 text-right" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto" style="font-size:15px;">
                 <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='/Home'>الصفحة الرئيسية <span class="sr-only">(current)</span></a></li>
-                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink="/lessons"> تصفح دروسنا</a></li>
-                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='/courses'>دوراتنا</a></li>
-                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='questions'> الاسئلة</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink="lessons"> تصفح دروسنا</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='courses'>دوراتنا</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='questions'> المنشورات</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='questionpool'> الأسئلة</a></li>
             </ul>
             <div *ngIf="!userEmail" id="adding">
                 <button type="button" routerLink="/register" class="btn btn-primary ml-3 rd bsignup"><i class="fas fa-user-plus"></i> سجل مجانا</button>

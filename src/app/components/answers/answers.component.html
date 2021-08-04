@@ -7,7 +7,7 @@
         <div class="question-content" data-views="10" data-anscount="1">
           <div data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
             <div class="media">
-              <img [src]="questions.image" class="ml-3" alt="...">
+              <img [src]="getImg(questions.image)" class="ml-3" alt="...">
               <div class="media-body text-right">
                 <h5 class="mt-0"> {{questions.userName}}</h5>
                 <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(questions.createdAt)}}</p>
@@ -15,9 +15,9 @@
             </div>
             <div class="card text-right mt-2">
               <div class="card-body">
-                <h5 class="card-title">
+                <h2 class="card-title">
                   {{questions.content}}
-                </h5>
+                </h2>
                 <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
               </div>
               <div class="card-footer text-left  ask">
@@ -50,11 +50,11 @@
 
               <div class="card-body text-right">
                 <div class="media">
-                  <img [src]="bestAnswer.image" class="align-self-start ml-3" alt="...">
+                  <img [src]="getImg(bestAnswer.image)" class="align-self-start ml-3" alt="...">
                   <div class="media-body">
                     <h5 class="mt-0">{{bestAnswer.userName}} @</h5>
                     <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(bestAnswer.createdAt)}}</p>
-                    <p class="h5">{{bestAnswer.content}}</p>
+                    <h3 class="h5">{{bestAnswer.content}}</h3>
                   </div>
                 </div>
               </div>
@@ -93,12 +93,12 @@
               data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
               <div class="card-body text-right">
                 <div class="media">
-                  <img [src]="item.image" class="align-self-start ml-3"
+                  <img [src]="getImg(item.image)" class="align-self-start ml-3"
                     alt="...">
                   <div class="media-body">
                     <h5 class="mt-0">{{item.userName}} @</h5>
                     <p> <i class="far fa-clock ml-2"></i>{{getEstimatedDate(item.createdAt)}}</p>
-                    <p class="h5">{{item.content}}</p>
+                    <h3 class="h5">{{item.content}}</h3>
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@
         <div class="media text-right faq p-3 aos-init aos-animate" data-aos="fade-in" data-aos-offset="200"
           data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
           <div class="media-body">
-            <h5 class="mt-0 mb-2">الاسئلة الشائعة</h5>
+            <h3 class="mt-0 mb-2">الاسئلة الشائعة</h3>
             <div id="commonQuestions">
               <a *ngFor="let item of asideQuestions" routerLink="/answers/{{item.id}}" class="btn d-block text-right">
               {{item.content}}

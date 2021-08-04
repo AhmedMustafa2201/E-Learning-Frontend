@@ -69,6 +69,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     )
   }
 
+  getImg(image){
+    return image==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+image
+  }
+
   ReBind(e: any): void {
     if (e.target.value !== '') {
       let newData = this.questions.filter((p: Post) => {
