@@ -9,8 +9,8 @@
         <div class="collapse navbar-collapse mr-4 text-right" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto" style="font-size:15px;">
                 <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='/Home'>الصفحة الرئيسية <span class="sr-only">(current)</span></a></li>
-                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active"> تصفح دروسنا</a></li>
-                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='courses'>دوراتنا</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink="/lessons"> تصفح دروسنا</a></li>
+                <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='/courses'>دوراتنا</a></li>
                 <li class="nav-item ml-4"> <a class="nav-link" routerLinkActive="active" routerLink='questions'> الاسئلة</a></li>
             </ul>
             <div *ngIf="!userEmail" id="adding">

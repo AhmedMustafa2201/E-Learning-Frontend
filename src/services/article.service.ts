@@ -17,4 +17,8 @@ export class ArticleService {
   getSomeArticles(){
     return this.http.get(this.URL+"article")
   }
+
+  getAllArticle(){
+    return this.http.get(this.URL+"article/article")
+  }
 }
