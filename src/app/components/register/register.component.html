@@ -23,15 +23,6 @@
                     </div>
                     <div class="form-group">
                         <label>البريد الالكتروني</label>
-<<<<<<< HEAD
-                        <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}" />
-                      <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
-                          <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني مطلوب</div>
-                          <div *ngIf="registerForm.controls.Email.errors.email">يرجي ادخال البريد الالكتروني صحيح</div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-=======
                         <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}"
                         />
                         <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
@@ -40,7 +31,6 @@
                         </div>
                     </div>
                     <div class="form-group">
->>>>>>> 2e3f5c863f38abc7b3243c0e0fbdd23ae924f8ba
                         <label>كلمة السر</label>
                         <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid':registerForm.get('Password').invalid && (registerForm.get('Password').touched ||registerForm.get('Password').dirty)||(submitted && registerForm.controls.Password.errors)}"
                         />
