@@ -11,10 +11,25 @@ import { LoaderService } from '../../loader/loader.service';
 export class HeaderComponent implements OnInit {
   color: ThemePalette = 'warn';
  ShowLoadIndcate:boolean = true;
-  constructor(public loader:LoaderService ){
+ userEmail:string = localStorage.getItem("rnemail")
+  constructor(public loader:LoaderService,private router:Router ){
    }
 
   ngOnInit(): void {
+    setInterval(()=>this.userEmail=localStorage.getItem("rnemail"),500)
+
   }
+  logOut(){
+    localStorage.removeItem("rnid")
+    localStorage.removeItem("rntoken")
+    localStorage.removeItem("rnemail")
+    localStorage.removeItem("rnroles")
+    localStorage.removeItem("rnid")
+    this.userEmail=""
+  }
+  goHome(){
+    this.router.navigateByUrl('/Home')
+  }
+
 
 }

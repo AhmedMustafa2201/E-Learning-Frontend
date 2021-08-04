@@ -13,4 +13,7 @@ export class AuthService {
   Register(user){
     return this.client.post(this.URL+"Auth/register",user)
   }
+  login(user){
+    return this.client.post(this.URL+"Auth/login",user)
+  }
 }
