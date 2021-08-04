@@ -8,45 +8,36 @@
                         <input type="text" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('FirstName').invalid && (registerForm.get('FirstName').touched ||registerForm.get('FirstName').dirty )||(submitted && registerForm.controls.FirstName.errors)}"
                         />
                         <div *ngIf="submitted||registerForm.controls.FirstName.errors" class="invalid-feedback  text-danger">
-                            <div *ngIf="registerForm.controls.FirstName.errors?.required">الاسم الاول مطلوب</div>
-                            <div *ngIf="registerForm.controls.FirstName.errors?.pattern">يرجي الادخال بطريقة صحيحة</div>
+                            <div *ngIf="registerForm.controls.FirstName.errors?.required">الاسم الأول مطلوب</div>
+                            <div *ngIf="registerForm.controls.FirstName.errors?.minlength">الاسم لا يقل عن ثلاثة أحرف</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>الاسم الثاني</label>
+                        <label>اسم العائلة</label>
                         <input type="text" formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': registerForm.get('LastName').invalid && (registerForm.get('LastName').touched ||registerForm.get('LastName').dirty)||(submitted && registerForm.controls.LastName.errors)}"
                         />
                         <div *ngIf="submitted || registerForm.controls.LastName.errors" class="invalid-feedback  text-danger">
                             <div *ngIf="registerForm.controls.LastName.errors?.required">اسم العائلة مطلوب</div>
-                            <div *ngIf="registerForm.controls.LastName.errors?.pattern">يرجي الادخال بطريقة صحيحة</div>
+                            <div *ngIf="registerForm.controls.LastName.errors?.pattern">الاسم لا يقل عن ثلاثة أحرف</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>البريد الالكتروني</label>
-<<<<<<< HEAD
-                        <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}" />
-                      <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
-                          <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني مطلوب</div>
-                          <div *ngIf="registerForm.controls.Email.errors.email">يرجي ادخال البريد الالكتروني صحيح</div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-=======
                         <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid':  registerForm.get('Email').invalid && (registerForm.get('Email').touched ||registerForm.get('Email').dirty)||(submitted && registerForm.controls.Email.errors)}"
                         />
                         <div *ngIf="submitted || registerForm.controls.Email.errors" class="invalid-feedback  text-danger">
-                            <div *ngIf="registerForm.controls.Email.errors?.required">البريد الالكتروني مطلوب</div>
-                            <div *ngIf="registerForm.controls.Email.errors?.email">يرجي ادخال البريد الالكتروني صحيح</div>
+                            <div *ngIf="registerForm.controls.Email.errors.required">البريد الالكتروني مطلوب</div>
+                            <div *ngIf="registerForm.controls.Email.errors.email">يرجي إدخال البريد الالكتروني بشكل صحيح</div>
                         </div>
                     </div>
+
                     <div class="form-group">
->>>>>>> 2e3f5c863f38abc7b3243c0e0fbdd23ae924f8ba
                         <label>كلمة السر</label>
                         <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid':registerForm.get('Password').invalid && (registerForm.get('Password').touched ||registerForm.get('Password').dirty)||(submitted && registerForm.controls.Password.errors)}"
                         />
                         <div *ngIf="submitted || registerForm.controls.Password.errors" class="invalid-feedback  text-danger">
                             <div *ngIf="registerForm.controls.Password.errors?.required">كلمة السر مطلوبة</div>
-                            <div *ngIf="registerForm.controls.Password.errors?.minlength">من فضلك ادخل 6 حروف علي الاقل</div>
+                            <div *ngIf="registerForm.controls.Password.errors?.pattern">يجب أن تحتوى كلمة السر على حرف كبير وحرف صغير ورقم ورمز ولا تقل عن ثمانية أحرف</div>
                         </div>
                     </div>
                     <div class="form-group">
