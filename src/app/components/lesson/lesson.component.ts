@@ -70,10 +70,6 @@ export class LessonComponent implements OnInit,AfterViewInit {
     )
 
 
-
-
-
-
     this.subscriptions.push(subscription1,subscription3,subscription2,subscription4)
   }
 
