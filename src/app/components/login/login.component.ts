@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/Home")
     this.loginForm = this.formBuilder.group({
       Email: ['', [Validators.required, Validators.email]],
-      Password:['']
+      Password:['', [Validators.required]]
   });
   }
   onSubmit() {
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("rnroles", JSON.stringify(resp.roles))
         this.router.navigateByUrl("/Home")
       },
-      err=>alert(err.error)
+      err=> alert("هناك خطأ في ادخال الايميل أو كلمة المرور - برجاء اعادة المحاولة")
       )
 }
 onReset() {

@@ -35,8 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ArticlecommentComponent } from './components/article/articlecomment/articlecomment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AllLessonsComponent } from './components/all-lessons/all-lessons.component';
-
 import { AllcoursesComponent } from '../app/components/allcourses/allcourses.component';
 import { AllArticlesComponent } from './components/all-articles/all-articles.component';
 
@@ -66,6 +66,7 @@ import { AllArticlesComponent } from './components/all-articles/all-articles.com
     ArticlecommentComponent,
     RegisterComponent,
     LoginComponent,
+    ProfileComponent,
     AllLessonsComponent,
     AllcoursesComponent,
     AllArticlesComponent,
@@ -84,7 +85,7 @@ import { AllArticlesComponent } from './components/all-articles/all-articles.com
     ReactiveFormsModule,
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true}
+    {provide:HTTP_INTERCEPTORS,useClass:IntercepterService,multi:true},
   ],
   bootstrap: [AppComponent]
 })

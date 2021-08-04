@@ -5,6 +5,8 @@ import { Lesson } from 'src/app/Models/lesson';
 import { LessonService } from './../../../services/lesson.service';
 import { Exam } from 'src/app/Models/exam';
 import { Title } from '@angular/platform-browser';
+import { Article } from './../../Models/article';
+import { ArticleService } from 'src/services/article.service';
 
 @Component({
   selector: 'app-lesson',
@@ -18,9 +20,12 @@ export class LessonComponent implements OnInit,AfterViewInit {
   lessons:Lesson[];
   lesson:Lesson;
   private subscriptions: Subscription[] = [];
+  relatedLessons:Lesson[]
+  relatedArticles: Article[]
 
 
-  constructor(private lsnService:LessonService,private route:ActivatedRoute,private title:Title) {
+
+  constructor(private articlSrvc:ArticleService,private lsnService:LessonService,private route:ActivatedRoute,private title:Title) {
     // this.id = route.snapshot.params["id"];
 
    }
@@ -29,11 +34,11 @@ export class LessonComponent implements OnInit,AfterViewInit {
     var subscription1
     var subscription2
     var subscription3
+    var subscription4
 
-    subscription3= this.route.params.subscribe(
-
+    subscription3= this.route.paramMap.subscribe(
       (params)=>{
-        this.id=params["id"]
+        this.id=parseInt(params.get("id"))
         subscription1 =  this.lsnService.getByID(this.id).subscribe(
           (res)=>{this.lesson=res as Lesson ;
             this.title.setTitle(this.lesson.title)
@@ -49,6 +54,15 @@ export class LessonComponent implements OnInit,AfterViewInit {
           },
           (err)=>console.log(err)
         )
+        subscription2=this.lsnService.getRelated(this.id).subscribe(
+          res=> this.relatedLessons= res as Lesson[],
+          err=>console.log(err)
+        )
+
+        subscription4=this.articlSrvc.getRelated(this.id).subscribe(
+          res=> this.relatedArticles = res as Article[],
+          err=>console.log(err)
+        )
     }
 
       ,(err)=>console.log(err)
@@ -60,7 +74,7 @@ export class LessonComponent implements OnInit,AfterViewInit {
 
 
 
-    this.subscriptions.push(subscription1,subscription2,subscription3)
+    this.subscriptions.push(subscription1,subscription3,subscription2,subscription4)
   }
 
   ngAfterViewInit(): void {

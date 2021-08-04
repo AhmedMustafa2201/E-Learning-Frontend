@@ -12,6 +12,7 @@ import { ExamComponent } from './components/exam/exam.component';
 import { MasterpageComponent } from './components/Home/masterpage/masterpage.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { MasterquestionpoolComponent } from './components/questionsPool/masterquestionpool/masterquestionpool.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:"courses", component:AllcoursesComponent},
   {path:"article/:id", component:ArticleComponent},
   {path:"register",component:RegisterComponent},
+  {path:"profile",component:ProfileComponent},
   {path:"login",component:LoginComponent},
   {path:"lessons",component:AllLessonsComponent},
   {path:"Articles",component:AllArticlesComponent},
