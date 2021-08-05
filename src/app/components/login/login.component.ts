@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem("rntoken"))
       this.router.navigateByUrl("/Home")
-    this.loginForm = this.formBuilder.group({
+      this.loginForm = this.formBuilder.group({
       Email: ['', [Validators.required, Validators.email]],
       Password:['', [Validators.required]]
   });
