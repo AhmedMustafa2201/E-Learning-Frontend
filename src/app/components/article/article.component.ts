@@ -13,6 +13,7 @@ import { Lesson } from 'src/app/Models/lesson';
 })
 export class ArticleComponent implements OnInit {
 
+  id:number;
   lesson:Article;
   Content:string="";
   Title:string="";
@@ -25,24 +26,30 @@ export class ArticleComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.sub=this.article.getByID(Number(this.route.snapshot.paramMap.get('id'))).subscribe({
-      next: res=>{
-        this.lesson=res as Article;
-        this.Title=this.lesson.title;
-        this.Content=this.lesson.content;
 
-        this.lsnService.getRelated(this.lesson.id).subscribe(
-          res=> this.relatedLessons= res as Lesson[],
-          err=>console.log(err)
-        )
+    this.route.paramMap.subscribe(
+      params=>{
+        this.id= parseInt(params.get("id"))
+      this.article.getByID(this.id).subscribe({
+        next: res=>{
+          this.lesson=res as Article;
+          this.Title=this.lesson.title;
+          this.Content=this.lesson.content;
 
-       this.articlSrvc.getRelated(this.lesson.id).subscribe(
-          res=> this.relatedArticles = res as Article[],
-          err=>console.log(err)
-        )
-
+          this.lsnService.getRelated(this.lesson.id).subscribe(
+            res=> this.relatedLessons= res as Lesson[],
+            err=>console.log(err)
+          )
+         this.articlSrvc.getRelated(this.lesson.id).subscribe(
+            res=> this.relatedArticles = res as Article[],
+            err=>console.log(err)
+          )
+        }
+      })
       }
-    })
+    )
+
+
   }
 
 }
