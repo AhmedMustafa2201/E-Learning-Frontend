@@ -77,7 +77,7 @@ export class ArticlecommentComponent implements OnInit {
 
     const connection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
-    .withUrl("https://localhost:44329/notify")
+    .withUrl("https://elearningbackendapi.azurewebsites.net/notify")
     .build();
 
     connection.start().then(function () {

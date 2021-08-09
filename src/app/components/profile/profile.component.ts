@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
     if(img==null) {
       localStorage.removeItem("rnimage")
       return "assets/images/person-icon.png"
-    } else { return "https://localhost:44329/"+img}
+    } else { return "https://elearningbackendapi.azurewebsites.net/"+img}
   }
 
   uploadPhoto(files, image:HTMLElement){
@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit {
   }
 
   setPhoto(image:HTMLElement, event){
-    image.setAttribute("src", "https://localhost:44329/"+event.dbPath)
+    image.setAttribute("src", "https://elearningbackendapi.azurewebsites.net/"+event.dbPath)
     localStorage.setItem("rnimage", event.dbPath)
 
   }

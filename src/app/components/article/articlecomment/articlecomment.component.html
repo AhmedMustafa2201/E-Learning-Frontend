@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="media text-right">
                     <img *ngIf="!comment.image" src="../../../../assets/images/person-icon.png" class="align-self-start ml-3" alt="...">
-                    <img *ngIf="comment.image" [src]="'https://localhost:44329/'+comment.image" class="align-self-start ml-3" alt="...">
+                    <img *ngIf="comment.image" [src]="'https://elearningbackendapi.azurewebsites.net/'+comment.image" class="align-self-start ml-3" alt="...">
                     <div class="media-body">
                         <h1 class="m-0">{{comment.userName}}</h1>
                         <p>

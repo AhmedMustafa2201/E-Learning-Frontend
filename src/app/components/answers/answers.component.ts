@@ -46,7 +46,7 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
 
     const connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl("https://localhost:44329/notify")
+      .withUrl("https://elearningbackendapi.azurewebsites.net/notify")
       .build();
 
       connection.start().then(function () {
@@ -87,7 +87,7 @@ export class AnswersComponent implements AfterViewInit, OnDestroy, OnInit {
 
 
   getImg(image){
-    return image==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+image
+    return image==null ? "assets/images/person-icon.png" : "https://elearningbackendapi.azurewebsites.net/"+image
   }
 
   getquestionsWithLimited() {

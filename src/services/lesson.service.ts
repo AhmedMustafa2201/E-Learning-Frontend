@@ -6,7 +6,7 @@ import { Lesson } from './../app/Models/lesson';
   providedIn: 'root'
 })
 export class LessonService {
-  private URL="https://localhost:44329/"
+  private URL="https://elearningbackendapi.azurewebsites.net/"
 
   constructor(private lessonClient: HttpClient) { }
   getByID(id:number){

@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getImg(): string{
-    return this.imageUrl==null ? "assets/images/person-icon.png" : "https://localhost:44329/"+this.imageUrl
+    return this.imageUrl==null ? "assets/images/person-icon.png" : "https://elearningbackendapi.azurewebsites.net/"+this.imageUrl
   }
 
 

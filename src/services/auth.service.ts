@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private client:HttpClient) { }
 
-  private URL="https://localhost:44329/api/";
+  private URL="https://elearningbackendapi.azurewebsites.net/api/";
 
   Register(user){
     return this.client.post(this.URL+"Auth/register",user)

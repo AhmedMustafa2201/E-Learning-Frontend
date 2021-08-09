@@ -8,7 +8,7 @@ export class ExamService {
 
   constructor(private myClient: HttpClient) { }
 
-  private URL="https://localhost:44329/api/"
+  private URL="https://elearningbackendapi.azurewebsites.net/api/"
 
 
   getByID(id:number){

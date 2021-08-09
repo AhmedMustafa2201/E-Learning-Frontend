@@ -9,7 +9,7 @@ export class LessonCommentService {
 
   constructor(private http:HttpClient) { }
 
-  private URL="https://localhost:44329/api/";
+  private URL="https://elearningbackendapi.azurewebsites.net/api/";
 
   getAll(id:number){
     return this.http.get(this.URL+"lessonComment/"+id)

@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class QuestionService {
 
   constructor(private myClient: HttpClient) { }
-  private URL="https://localhost:44329/api/Post"
+  private URL="https://elearningbackendapi.azurewebsites.net/api/Post"
 
   getAll(){
     return this.myClient.get(this.URL)

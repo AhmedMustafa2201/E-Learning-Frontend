@@ -8,7 +8,7 @@ export class AnswerService {
 
 
   constructor(private myClient: HttpClient) { }
-  private URL="https://localhost:44329/api/Comment"
+  private URL="https://elearningbackendapi.azurewebsites.net/api/Comment"
 
 
   updateLike(id:number, answer:any){

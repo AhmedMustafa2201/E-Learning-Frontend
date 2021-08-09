@@ -8,7 +8,7 @@ export class ArticleService {
 
   constructor(private http:HttpClient) { }
 
-  private URL="https://localhost:44329/api/";
+  private URL="https://elearningbackendapi.azurewebsites.net/api/";
 
 
   getByID(id:number){
